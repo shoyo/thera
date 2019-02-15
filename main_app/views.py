@@ -24,18 +24,9 @@ def redirect_view(request):
     return response
 
 
-# def result(request):
-#     ret = {}  # all query types to JSON responses
-#     text = request.GET['input']  # get input text from form
-#     for query_type in api_urls.keys():
-#         json_response = get_api_response(api_urls[query_type], text)
-#         ret[query_type] = json_response
-#     return render(request, 'main_app/dashboard.html', {'all': ret})
-
-
 def dashboard(request):
     text = request.GET['input']
-    ret = get_quote_and_author(text)
+    ret = text
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
