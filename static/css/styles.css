@@ -1,6 +1,8 @@
 html {
   background-color: black;
   font-family: "Gravity-Regular", "Arial", Times, serif; }
+  html .hidden {
+    display: none; }
   html header {
     display: flex;
     justify-content: space-between;
@@ -38,9 +40,12 @@ html {
       display: flex;
       width: 100%;
       justify-content: center;
+      align-content: center;
       color: white;
-      padding: 40px 0 20px;
+      height: 150px;
       font-size: 50px; }
+      html .top .main-message p {
+        margin: auto; }
     html .top .main-input {
       display: flex;
       justify-content: center; }

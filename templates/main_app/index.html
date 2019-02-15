@@ -4,12 +4,15 @@
 {% block style %}{% endblock %}
 
 {% block scripts %}
+	$(document).ready(function(){
+    	$('.hidden').fadeIn('slow').removeClass('hidden');
+	});
 {% endblock %}
 
 {% block content %}
   	<div class="top">
   		<div class="main-message">
-  			<p class="main-message">How are you feeling?</p>
+  			<p class="hidden">How are you feeling?</p>
   		</div>
   		<div class="main-input">
   			<form action="{% url 'result' %}" method="get">

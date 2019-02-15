@@ -3,6 +3,9 @@
 html{
 	background-color: $bg;
 	font-family: "Gravity-Regular", "Arial", Times, serif;
+	.hidden{
+		display: none;
+	}
 	header{
 		display: flex;
 		justify-content: space-between;
@@ -48,9 +51,13 @@ html{
 				display: flex;
 				width: 100%;
 				justify-content: center;
+				align-content: center;
 				color: $forte;
-				padding: 40px 0 20px;
+				height: 150px;
 				font-size: 50px;
+				p{
+					margin: auto;
+				}
 			}
 			&-input{
 				display: flex;
