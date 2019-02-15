@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 try:
     from .api_keys import RAPID_API_KEY
@@ -34,7 +34,7 @@ def result(request):
 
 # Helper functions
 
-# def get_emotion()
+def get_emotion():
 
 def get_api_response(api_base_url, text):
     """Return JSON response from API base url given the input text."""
@@ -56,3 +56,10 @@ def url_encode(text):
             new = letter
         ret.append(new)
     return ''.join(ret)
+
+
+# Redirect
+
+def redirect_view(request):
+    response = redirect('/redirect-success/')
+    return response
