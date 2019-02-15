@@ -19,7 +19,8 @@ def index(request):
 
 
 def redirect_view(request):
-    response = redirect('/redirect-success/')
+    response = redirect('https://www.reddit.com/api/v1/authorize?client_id=QYastqo-s6Y6ZA&response_type=code&state=test&redirect_uri=https://thera-health.herokuapp.com/redirect/&duration=temporary&scope=read')
+    testpost = requests.post("https://www.reddit.com/api/v1/access_token")
     return response
 
 
@@ -29,13 +30,13 @@ def redirect_view(request):
 #     for query_type in api_urls.keys():
 #         json_response = get_api_response(api_urls[query_type], text)
 #         ret[query_type] = json_response
-#     return render(request, 'main_app/result.html', {'all': ret})
+#     return render(request, 'main_app/dashboard.html', {'all': ret})
 
 
-def result(request):
+def dashboard(request):
     text = request.GET['input']
     ret = get_quote_and_author(text)
-    return render(request, 'main_app/result.html', {'ret': ret})
+    return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
 # ==========

@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('result/', views.result, name='result'),
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('redirect/', views.redirect_view),
 ]
