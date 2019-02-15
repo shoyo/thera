@@ -12,12 +12,13 @@
   			<p class="main-message">How are you feeling?</p>
   		</div>
   		<div class="main-input">
-  			<form>
+  			<form action="{% url 'result' %}" method="get">
+				{% csrf_token %}
 				<div class="box">
-					<textarea class="feeling-input" id="emotion" placeholder=""></textarea>
+					<textarea class="feeling-input" id="input" name="input" type="text" placeholder=""></textarea>
 				</div>
 				<div class="btn">
-					<input type="submit" class="submit" value="Submit"></input>
+					<input type="submit" class="submit" value="Submit">
 				</div>
 			</form>
   		</div>
