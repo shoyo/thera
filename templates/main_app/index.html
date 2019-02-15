@@ -4,16 +4,17 @@
 {% block style %}{% endblock %}
 
 {% block content %}
-  	<div class="jumbotron">
-		<h1 class="display-4">name</h1>
-		<p class="lead">Input how you're feeling to get some feedback.</p>
-		<hr class="my-4">
-		<form>
-			<div class="form-group">
-			<label for="emotion">Input feelings</label>
-			<input type="text" class="form-control" id="emotion" placeholder="Input how you're feeling...">
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-	</div>
+<div class="jumbotron">
+    <h1 class="display-4">name</h1>
+    <p class="lead">Input how you're feeling to get some feedback.</p>
+    <hr class="my-4">
+    <form action="{% url 'result' %}" method="get">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="input">Input feelings</label>
+            <input type="text" class="form-control" id="input" name="input" placeholder="Input how you're feeling...">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
 {% endblock %}

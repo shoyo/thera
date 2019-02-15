@@ -5,5 +5,7 @@ main_app/api_keys.py
 # Unnecessary auxiliary files
 main_project/__pycache__
 main_app/__pycache__
+main_app/migrations/__pycache__
+barinstorm.txt
 .idea
 .DS_Store
