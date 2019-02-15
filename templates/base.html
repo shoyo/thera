@@ -14,17 +14,17 @@
   <script>{% block scripts %}{% endblock %}</script>
   <div>
     <header>
-      <h1>Thera</h1>
+      <a class="logo" href="{% url 'index' %}"><h1>Thera</h1></a>
       <nav class="nav-menu">
         <ul>
         <li>
-          <a class="" href="#">Register</a>
-        </li>
-        <li>
-          <a class="" href="#">Log In</a>
+          <a class="" href="{% url 'index' %}">Home</a>
         </li>
         <li>
           <a class="" href="#">About</a>
+        </li>
+        <li>
+          <a class="" href="#">Sign In</a>
         </li>
       </ul>
       </nav>
