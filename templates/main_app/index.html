@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block page_title %}Top{% endblock %}
+{% block page_title %}Home{% endblock %}
 {% load static %}
 {% block style %}{% endblock %}
 
@@ -15,7 +15,7 @@
   			<p class="hidden">How are you feeling?</p>
   		</div>
   		<div class="main-input">
-  			<form action="{% url 'result' %}" method="get">
+  			<form action="{% url 'dashboard' %}" method="get">
 				{% csrf_token %}
 				<div class="box">
 					<textarea class="feeling-input" id="input" name="input" type="text" placeholder=""></textarea>
