@@ -4,16 +4,19 @@
 {% block style %}{% endblock %}
 
 {% block content %}
-  	<div class="jumbotron">
-		<h1 class="display-4">name</h1>
-		<p class="lead">Input how you're feeling to get some feedback.</p>
-		<hr class="my-4">
-		<form>
-			<div class="form-group">
-			<label for="emotion">Input feelings</label>
-			<input type="text" class="form-control" id="emotion" placeholder="Input how you're feeling...">
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+  	<div class="top">
+  		<div class="main-message">
+  			<p class="main-message">How are you feeling?</p>
+  		</div>
+  		<div class="main-input">
+  			<form>
+				<div class="box">
+					<textarea class="feeling-input" id="emotion" placeholder=""></textarea>
+				</div>
+				<div class="btn">
+					<input type="submit" class="btn btn-primary submit"></input>
+				</div>
+			</form>
+  		</div>
 	</div>
 {% endblock %}

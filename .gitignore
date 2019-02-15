@@ -7,3 +7,4 @@ main_project/__pycache__
 main_app/__pycache__
 .idea
 .DS_Store
+static/compiler

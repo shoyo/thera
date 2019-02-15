@@ -1,0 +1,45 @@
+html {
+  background-color: black;
+  font-family: "Gravity-Regular", "Arial", Times, serif; }
+  html header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #062049; }
+  html textarea {
+    outline: none;
+    resize: none; }
+  html .top {
+    background-color: black; }
+    html .top .main-message {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      color: white;
+      padding: 40px 0;
+      font-size: 50px; }
+    html .top .main-input {
+      display: flex;
+      justify-content: center; }
+      html .top .main-input > form {
+        width: 75%; }
+        html .top .main-input > form .box {
+          display: flex;
+          justify-content: center; }
+          html .top .main-input > form .box .feeling-input {
+            background-color: black;
+            border: #66ccff 1px solid;
+            color: #66ccff;
+            width: 50%;
+            height: 4em;
+            border-radius: 10px;
+            margin: 0 auto 40px;
+            transition: 0.3s; }
+            html .top .main-input > form .box .feeling-input:focus {
+              width: 100%;
+              height: 200px;
+              transition: 0.3s; }
+        html .top .main-input > form .btn {
+          width: 100%; }
+          html .top .main-input > form .btn .submit {
+            margin: 0 auto;
+            width: 100px; }
