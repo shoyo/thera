@@ -21,3 +21,11 @@ email
 credentials
 user id
 
+
+Emotions
+- fear
+- overwhelmed
+- lonely
+- incompetent
+- useless
+

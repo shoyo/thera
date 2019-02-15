@@ -6,11 +6,6 @@
 {% block content %}
 <p><h3>Sentiment Analysis Results:</h3></p>
 <table style="width:100%">
-    {% for key, value in all.items %}
-    <tr>
-        <td>{{ key }}</td>
-        <td>{{ value }}</td>
-    </tr>
-    {% endfor %}
+   {{ ret }}
 </table>
 {% endblock %}
