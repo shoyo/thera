@@ -34,7 +34,7 @@ def redirect_view(request):
 
 def result(request):
     text = request.GET['input']
-    ret = get_article_url(text)
+    ret = get_quote_and_author(text)
     return render(request, 'main_app/result.html', {'ret': ret})
 
 
@@ -45,6 +45,7 @@ api_urls = {
     'emotion': 'https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/?text=',
     'synonym': 'https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=',
     'article': 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?autoCorrect=true&pageNumber=1&pageSize=2&',
+    'quote': 'https://theysaidso.p.rapidapi.com/quote?category=',
 }
 
 ## Specific helper functions (used to obtain specific data)
@@ -65,7 +66,12 @@ def get_synonym(word):
 def get_article_url(emotion):
     """Return an article url associated with given emotion."""
     json_response = get_api_response(api_urls['article'], emotion)
-    return json_response
+    return json_response['value']
+
+def get_quote_and_author(category):
+    """Return tuple of a quote associated with given categoryand its author."""
+    json_response = get_api_response(api_urls['quote'], category)
+    return json_response['contents']['quote'], json_response['contents']['author']
 
 
 ## General helper functions (used in every API call)
