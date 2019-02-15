@@ -4,7 +4,31 @@ html {
   html header {
     display: flex;
     justify-content: space-between;
-    background-color: #062049; }
+    background-color: black;
+    color: white; }
+    html header .nav-menu {
+      width: 25%; }
+      html header .nav-menu > ul {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        list-style-type: none; }
+        html header .nav-menu > ul > li {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          width: 33.333%; }
+          html header .nav-menu > ul > li > a {
+            color: white;
+            width: 100%;
+            transition: 0.3s;
+            text-align: center;
+            line-height: 100%; }
+            html header .nav-menu > ul > li > a:hover {
+              text-decoration: none;
+              background-color: rgba(255, 255, 255, 0.4);
+              transition: 0.3s; }
   html textarea {
     outline: none;
     resize: none; }
@@ -15,7 +39,7 @@ html {
       width: 100%;
       justify-content: center;
       color: white;
-      padding: 40px 0;
+      padding: 40px 0 20px;
       font-size: 50px; }
     html .top .main-input {
       display: flex;
@@ -27,12 +51,12 @@ html {
           justify-content: center; }
           html .top .main-input > form .box .feeling-input {
             background-color: black;
-            border: #66ccff 1px solid;
-            color: #66ccff;
+            border: white 1px solid;
+            color: white;
             width: 50%;
             height: 4em;
             border-radius: 10px;
-            margin: 0 auto 40px;
+            margin: 0 auto 20px;
             transition: 0.3s; }
             html .top .main-input > form .box .feeling-input:focus {
               width: 100%;
@@ -41,5 +65,17 @@ html {
         html .top .main-input > form .btn {
           width: 100%; }
           html .top .main-input > form .btn .submit {
+            outline: none;
+            font-size: 1.5em;
             margin: 0 auto;
-            width: 100px; }
+            width: auto;
+            border-radius: 10px;
+            background-color: black;
+            padding: 0 10px;
+            color: white;
+            border: white 1px solid;
+            transition: 0.3s; }
+            html .top .main-input > form .btn .submit:hover {
+              background-color: white;
+              color: black;
+              transition: 0.3s; }

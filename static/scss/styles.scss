@@ -1,24 +1,55 @@
+@import "color";
+
 html{
-	background-color: black;
+	background-color: $bg;
 	font-family: "Gravity-Regular", "Arial", Times, serif;
 	header{
 		display: flex;
 		justify-content: space-between;
-		background-color: #062049;
+		background-color: $bg;
+		color: $forte;
+		.nav-menu{
+			width: 25%;
+			>ul{
+				height: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-content: center;
+				list-style-type: none;
+				>li{
+					display: flex;
+					align-content: center;
+					justify-content: center;
+					width: 33.333%;
+					>a{
+						color: $forte;
+						width: 100%;
+						transition: 0.3s;
+						text-align: center;
+						line-height: 100%;
+						&:hover{
+							text-decoration: none;
+							background-color: rgba(255,255,255, 0.4);
+							transition: 0.3s;
+						}
+					}
+				}
+			}
+		}
 	}
 	textarea{
 		outline: none; 
     	resize: none; 
 	}
 	.top{
-		background-color: black;
+		background-color: $bg;
 		.main{
 			&-message{
 				display: flex;
 				width: 100%;
 				justify-content: center;
-				color: white;
-				padding: 40px 0;
+				color: $forte;
+				padding: 40px 0 20px;
 				font-size: 50px;
 			}
 			&-input{
@@ -30,13 +61,13 @@ html{
 						display: flex;
 						justify-content: center;
 						.feeling-input{
-							background-color: black;
-							border: #66ccff 1px solid;
-							color: #66ccff;
+							background-color: $bg;
+							border: $forte 1px solid;
+							color: $forte;
 							width: 50%;
 							height: 4em;
 							border-radius: 10px;
-							margin: 0 auto 40px;
+							margin: 0 auto 20px;
 							transition: 0.3s;
 							&:focus{
 								width: 100%;
@@ -48,8 +79,21 @@ html{
 					.btn{
 						width: 100%;
 						.submit{
+							outline: none; 
+							font-size: 1.5em;
 							margin: 0 auto;
-							width: 100px;
+							width: auto;
+							border-radius: 10px;
+							background-color: $bg;
+							padding: 0 10px;
+							color: $forte;
+							border: $forte 1px solid;
+							transition: 0.3s;
+							&:hover{
+								background-color: $forte;
+								color: $bg;
+								transition: 0.3s;
+							}
 						}
 					}
 				}

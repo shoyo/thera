@@ -11,24 +11,25 @@
     {% block style %}{% endblock %}
 </head>
 <body>
-<div>
-  <header>
-    <h1>name</h1>
-    <nav class="float-right">
-      <ul class="nav ">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul>
-    </nav>
-  </header>
-</div>
+  <script>{% block scripts %}{% endblock %}</script>
+  <div>
+    <header>
+      <h1>name</h1>
+      <nav class="nav-menu">
+        <ul>
+        <li>
+          <a class="" href="#">Register</a>
+        </li>
+        <li>
+          <a class="" href="#">Log In</a>
+        </li>
+        <li>
+          <a class="" href="#">About</a>
+        </li>
+      </ul>
+      </nav>
+    </header>
+  </div>
 
 {% block content %}{% endblock %}
 
