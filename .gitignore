@@ -1,0 +1,9 @@
+# Local settings
+main_project/local_settings.py
+main_app/api_keys.py
+
+# Unnecessary auxiliary files
+main_project/__pycache__
+main_app/__pycache__
+.idea
+.DS_Store
