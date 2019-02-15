@@ -1,0 +1,31 @@
+Databases
+
+User:
+id
+first name
+last name
+email
+medical_expert id
+
+Journal Entry:
+id
+text input
+date added
+User id
+
+Medical_expert:
+id
+first name
+last name
+email
+credentials
+user id
+
+
+Emotions
+- fear
+- overwhelmed
+- lonely
+- incompetent
+- useless
+

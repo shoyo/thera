@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block page_title %}Result{% endblock %}
+{% load static %}
+{% block style %}{% endblock %}
+
+{% block content %}
+<p><h3>Sentiment Analysis Results:</h3></p>
+<table style="width:100%">
+   {{ ret }}
+</table>
+{% endblock %}
