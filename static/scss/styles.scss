@@ -32,7 +32,7 @@ html{
 		color: $forte;
 		height: 80px;
 		.nav-menu{
-			width: 25%;
+			width: 40%;
 			>ul{
 				height: 100%;
 				display: flex;
@@ -43,7 +43,7 @@ html{
 					display: flex;
 					align-content: center;
 					justify-content: center;
-					width: 33.333%;
+					width: 25%;
 					>a{
 						color: $navtxt;
 						width: 100%;

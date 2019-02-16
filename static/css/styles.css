@@ -25,7 +25,7 @@ html {
     color: white;
     height: 80px; }
     html header .nav-menu {
-      width: 25%; }
+      width: 40%; }
       html header .nav-menu > ul {
         height: 100%;
         display: flex;
@@ -36,7 +36,7 @@ html {
           display: flex;
           align-content: center;
           justify-content: center;
-          width: 33.333%; }
+          width: 25%; }
           html header .nav-menu > ul > li > a {
             color: #101010;
             width: 100%;
