@@ -1,11 +1,79 @@
 {% extends 'base.html' %}
-{% block page_title %}Result{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
 {% load static %}
 {% block style %}{% endblock %}
 
+{% block scripts %}
+	$(document).ready(function(){
+    	$('.hidden').fadeIn('slow').removeClass('hidden');
+	});
+{% endblock %}
+
 {% block content %}
-<p><h3>Sentiment Analysis Results:</h3></p>
-<table style="width:100%">
-   {{ ret.0 }} by {{ ret.1 }}
-</table>
+	<div class="dash">
+		<div class="banner">
+			<h2 class="title">Dashboard</h2>
+		</div>
+		<div class="content">
+			<div class="sidebar">
+				
+			</div>
+			<div class="recommendations hidden">
+				<div class="quotes">
+					<div class="title">
+						<p>Quotes</p>
+					</div>
+					<div class="card">
+						<p class="saying">SAMPLE_QUOTE</p>
+					</div>
+				</div>
+				<div class="music">
+					<div class="title">
+						<p>Music</p>
+					</div>
+					<div class="album">
+						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+					</div>
+					<div class="album">
+						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+					</div>
+					<div class="album">
+						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+					</div>
+					<div class="album">
+						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+					</div>
+					<!-- <div class="card">
+						<p class="title">SAMPLE_TITLE</p>
+						<p class="img"><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="100" height="100"></p>
+						<p class="link"><a href=""></a></p>
+					</div> -->
+				</div>
+				<div class="articles">
+					<div class="title">
+						<p>Article</p>
+					</div>
+					<div class="card">
+						<p class="saying">SAMPLE_ARTICLE</p>
+					</div>
+				</div>
+				<div class="books">
+					<div class="title">
+						<p>Books</p>
+					</div>
+					<div class="card">
+						<p class="saying">SAMPLE_BOOKED</p>
+					</div>
+				</div>
+				<div class="movies">
+					<div class="title">
+						<p>Movies</p>
+					</div>
+					<div class="card">
+						<p class="saying">SAMPLE_MOVIES</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

@@ -29,7 +29,7 @@ html{
 						width: 100%;
 						transition: 0.3s;
 						text-align: center;
-						line-height: 100%;
+						margin: auto;
 						&:hover{
 							text-decoration: none;
 							background-color: rgba(255,255,255, 0.4);
@@ -59,11 +59,19 @@ html{
 					margin: auto;
 				}
 			}
+			&-date{
+				display: flex;
+				width: 100%;
+				justify-content: center;
+				align-content: center;
+				text-align: center;
+				color: white;
+			}
 			&-input{
 				display: flex;
 				justify-content: center;
 				>form{
-					width: 75%;
+					width: 50%;
 					.box{
 						display: flex;
 						justify-content: center;
@@ -71,16 +79,10 @@ html{
 							background-color: $bg;
 							border: $forte 1px solid;
 							color: $forte;
-							width: 50%;
-							height: 4em;
+							width: 100%;
+							height: 20em;
 							border-radius: 10px;
 							margin: 0 auto 20px;
-							transition: 0.3s;
-							&:focus{
-								width: 100%;
-								height: 200px;
-								transition: 0.3s;
-							}
 						}
 					}
 					.btn{
@@ -102,6 +104,56 @@ html{
 								transition: 0.3s;
 							}
 						}
+					}
+				}
+			}
+		}
+	}
+	.dash{
+		.banner{
+			width: 100%;
+			height: 200px;
+			background-color: $bg2;
+			color: $forte;
+			display: table;
+			.title{
+				font-size: 4em;
+				margin:0;
+				padding:0;
+				vertical-align:middle;
+				text-align: center;
+				display:table-cell;
+			}
+		}
+		.content{
+			background-color: $bg;
+			.recommendations{
+				width: 1000px;
+				margin: 0 auto;
+				>div{
+					margin-bottom: 40px;
+				}
+				.quotes, .music, .articles, .movies, .books{
+					display: flex;
+					flex-wrap: wrap;
+					.title{	
+						width: 100%;
+						font-size: 2em;
+						margin-bottom: 20px;
+						color: $forte;
+					}
+					.card{
+						background-color: $bg2;
+						width: 75%;
+						margin: 0 auto;
+						color: $forte;
+						margin-bottom: 10px;
+					}
+					.album{
+						overflow: hidden;
+						width: calc(20% + 30px);
+						display: flex;
+						justify-content: center;
 					}
 				}
 			}

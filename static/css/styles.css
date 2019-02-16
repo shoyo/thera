@@ -26,7 +26,7 @@ html {
             width: 100%;
             transition: 0.3s;
             text-align: center;
-            line-height: 100%; }
+            margin: auto; }
             html header .nav-menu > ul > li > a:hover {
               text-decoration: none;
               background-color: rgba(255, 255, 255, 0.4);
@@ -46,11 +46,18 @@ html {
       font-size: 50px; }
       html .top .main-message p {
         margin: auto; }
+    html .top .main-date {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      color: white; }
     html .top .main-input {
       display: flex;
       justify-content: center; }
       html .top .main-input > form {
-        width: 75%; }
+        width: 50%; }
         html .top .main-input > form .box {
           display: flex;
           justify-content: center; }
@@ -58,15 +65,10 @@ html {
             background-color: black;
             border: white 1px solid;
             color: white;
-            width: 50%;
-            height: 4em;
+            width: 100%;
+            height: 20em;
             border-radius: 10px;
-            margin: 0 auto 20px;
-            transition: 0.3s; }
-            html .top .main-input > form .box .feeling-input:focus {
-              width: 100%;
-              height: 200px;
-              transition: 0.3s; }
+            margin: 0 auto 20px; }
         html .top .main-input > form .btn {
           width: 100%; }
           html .top .main-input > form .btn .submit {
@@ -84,3 +86,44 @@ html {
               background-color: white;
               color: black;
               transition: 0.3s; }
+  html .dash .banner {
+    width: 100%;
+    height: 200px;
+    background-color: gray;
+    color: white;
+    display: table; }
+    html .dash .banner .title {
+      font-size: 4em;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+      text-align: center;
+      display: table-cell; }
+  html .dash .content {
+    background-color: black; }
+    html .dash .content .recommendations {
+      width: 1000px;
+      margin: 0 auto; }
+      html .dash .content .recommendations > div {
+        margin-bottom: 40px; }
+      html .dash .content .recommendations .quotes, html .dash .content .recommendations .music, html .dash .content .recommendations .articles, html .dash .content .recommendations .movies, html .dash .content .recommendations .books {
+        display: flex;
+        flex-wrap: wrap; }
+        html .dash .content .recommendations .quotes .title, html .dash .content .recommendations .music .title, html .dash .content .recommendations .articles .title, html .dash .content .recommendations .movies .title, html .dash .content .recommendations .books .title {
+          width: 100%;
+          font-size: 2em;
+          margin-bottom: 20px;
+          color: white; }
+        html .dash .content .recommendations .quotes .card, html .dash .content .recommendations .music .card, html .dash .content .recommendations .articles .card, html .dash .content .recommendations .movies .card, html .dash .content .recommendations .books .card {
+          background-color: gray;
+          width: 75%;
+          margin: 0 auto;
+          color: white;
+          margin-bottom: 10px; }
+        html .dash .content .recommendations .quotes .album, html .dash .content .recommendations .music .album, html .dash .content .recommendations .articles .album, html .dash .content .recommendations .movies .album, html .dash .content .recommendations .books .album {
+          overflow: hidden;
+          width: calc(20% + 30px);
+          display: flex;
+          justify-content: center; }
+          html .dash .content .recommendations .quotes .album > img, html .dash .content .recommendations .music .album > img, html .dash .content .recommendations .articles .album > img, html .dash .content .recommendations .movies .album > img, html .dash .content .recommendations .books .album > img {
+            border-radius: 10px; }
