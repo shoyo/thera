@@ -7,6 +7,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('redirect/', views.redirect_view),
+    path('<str:username>/journal', views.journal, name='journal'),
+    path('signup/', views.signup, name='signup'),
     # path('signin/', auth_views.login, name='login'),
     # path('signout/', auth_views.logout, name='logout'),
 ]
