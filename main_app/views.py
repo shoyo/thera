@@ -39,8 +39,10 @@ def dashboard(request):
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
+    reddit_info = get_reddit_url()
+    getting_help(request)
     ret = {'quote': quote, 'music': music, 'polarity': polarity,'reddit':reddit_info}
-    return render(request, 'main_app/dashboard.html', {'ret': ret})
+    return HttpResponse(ret['doc_info'])#render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
 def journal_index(request):
@@ -67,7 +69,7 @@ def journal(request, username):
 
 def getting_help(request):
     experts = get_experts()
-    return render(request, 'getting_help.html', {'experts': experts})
+    return render(request, 'main_app/getting_help.html', {'experts': experts})
 
 
 ## === USER AUTHENTICATION ===
@@ -225,7 +227,33 @@ def get_reddit_url():
 
 
 def get_experts():
-    pass
+    """Get doctor data"""
+    doctor_info_dict = []
+    response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
+        headers={
+            "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
+        }
+    )
+    doctor_api_key = doctor_credentials
+    location = response.json()
+    latitude = float(location['ip']['latitude'])
+    longitude = float(location['ip']['longitude'])
+    loc = 'location=' + str(latitude) + '%2C' + str(longitude)
+    query = 'https://api.betterdoctor.com/2016-03-01/practices?'+loc+'%2C100&user_location='+str(latitude)+'%2C'+str(longitude)+'&skip=0&limit=3&user_key='+doctor_api_key
+    find_doc = requests.get(query)
+    result = find_doc.json()
+    for pos in range(len(result['data'])):
+        if result['data'][pos]['total_doctors'] == 0:
+            pass
+        else:
+            name =result['data'][pos]['doctors'][0]['profile']['first_name'] + ' '+result['data'][pos]['doctors'][0]['profile']['last_name']
+            url_img = result['data'][pos]['doctors'][0]['profile']['image_url']
+            specialty = result['data'][pos]['doctors'][0]['specialties'][0]['description']
+            city = result['data'][pos]['visit_address']['city']
+            state = result['data'][pos]['visit_address']['state']
+            doctor_info_dict.append((name,url_img,specialty,city,state))
+            #print(name,url_img,specialty,state,'-',city)
+    return doctor_info_dict
 
 def doctor(ip_address):
     """Get doctor data"""

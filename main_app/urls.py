@@ -11,5 +11,5 @@ urlpatterns = [
     path('signin/', views.signin, name='signin'),
     path('signin_attempt', views.signin_view, name='signin_attempt'),
     path('get_ip/',views.get_client_ip,name='client_id'),
-    path('getting_help', views.getting_help, name='getting_help'),
+    path('getting_help/', views.getting_help, name='getting_help'),
 ]
