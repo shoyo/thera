@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
-from .models import User
+from .models import User, JournalEntry
 from .local_api_credentials import spotify_credentials,reddit_credentials, doctor_credentials
 
 try:
@@ -49,14 +49,14 @@ def journal(request, username):
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     if request.user.username != user.username:
         return render(request, 'unavailable.html')
-    return render(request, 'main_app/journal.html', {'user': user.journal})
+
+    journals = JournalEntry.objects.filter(username=username)
+    return render(request, 'main_app/journal.html', {'journals': journals})
 
 
-def redirect_view(request):
-    response = redirect(
-        'https://www.reddit.com/api/v1/authorize?client_id=QYastqo-s6Y6ZA&response_type=code&state=test&redirect_uri=https://thera-health.herokuapp.com/redirect/&duration=temporary&scope=read')
-    testpost = requests.post("https://www.reddit.com/api/v1/access_token")
-    return response
+def getting_help(request):
+    experts = get_experts()
+    return render(request, 'getting_help.html', {'experts': experts})
 
 
 ## === USER AUTHENTICATION ===
@@ -188,6 +188,10 @@ def get_reddit_url(emotion):
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
         store_link.append(url)
     return store_link
+
+
+def get_experts():
+    pass
 
 def doctor(ip_address):
     """Get doctor data"""

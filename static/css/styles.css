@@ -151,7 +151,8 @@ html {
           width: calc(20% + 30px);
           display: flex;
           justify-content: center;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+          transition: 0.3s; }
           html .dash .content .recommendations .music .album > a, html .dash .content .recommendations .articles .album > a, html .dash .content .recommendations .movies .album > a, html .dash .content .recommendations .books .album > a {
             width: 100%;
             display: flex;
@@ -165,6 +166,9 @@ html {
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap; }
+          html .dash .content .recommendations .music .album:hover, html .dash .content .recommendations .articles .album:hover, html .dash .content .recommendations .movies .album:hover, html .dash .content .recommendations .books .album:hover {
+            transform: scale(1.1);
+            transition: 0.3s; }
   html .sign-in {
     height: calc(100vh - 100px);
     background-color: transparent;
@@ -225,3 +229,5 @@ html {
       margin: 20px auto; }
       html .sign-up .msg > a {
         color: blue; }
+
+/*# sourceMappingURL=styles.css.map */
