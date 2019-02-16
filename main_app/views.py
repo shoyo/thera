@@ -1,12 +1,13 @@
 import os
 import random
 
-from django.shortcuts import render, redirect
 import requests
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .forms import UserSignUpForm
 
 try:
     from .api_keys import RAPID_API_KEY
-
     os.environ['RAPID_API_KEY'] = RAPID_API_KEY
 except ImportError:
     pass
@@ -24,10 +25,19 @@ def redirect_view(request):
     return response
 
 
+def signup(request):
+    form = UserSignUpForm()
+    return render(request, 'main_app/signup.html', {'form': form})
+
+
 def dashboard(request):
     text = request.GET['input']
     ret = text
     return render(request, 'main_app/dashboard.html', {'ret': ret})
+
+
+def journal(request):
+    return HttpResponse("this is the journal page.")
 
 
 # ==========
