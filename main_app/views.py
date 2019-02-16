@@ -14,7 +14,6 @@ from .local_spotify_credentials import credentials
 
 try:
     from .api_keys import RAPID_API_KEY
-
     os.environ['RAPID_API_KEY'] = RAPID_API_KEY
 except ImportError:
     pass
@@ -23,15 +22,16 @@ except ImportError:
 # ==== GENERAL VIEWS =====
 
 def index(request):
-    return render(request, 'main_app/index.html')
+    datetime =
+    return render(request, 'main_app/index.html', datetime)
 
 
 def dashboard(request):
-    # CURRENTLY ASSUMING TEXT == EMOTION
     text = request.GET['input']
-    synonym = get_synonym(text)
+    emotion = get_emotion(text)
+    # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
-    music = get_music_url_and_image(synonym)
+    music = get_music_url_and_image(emotion)
     ret = {'quote': quote, 'music': music}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
