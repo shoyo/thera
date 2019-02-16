@@ -6,6 +6,26 @@ html{
 	.hidden{
 		display: none;
 	}
+	.btn{
+		width: 100%;
+		.submit{
+			outline: none; 
+			font-size: 1em;
+			margin: 0 auto;
+			width: auto;
+			border-radius: 10px;
+			background-color: $bg;
+			padding: 0 10px;
+			color: $forte;
+			border: $forte 1px solid;
+			transition: 0.3s;
+			&:hover{
+				background-color: $forte;
+				color: $bg;
+				transition: 0.3s;
+			}
+		}
+	}
 	header{
 		display: flex;
 		justify-content: space-between;
@@ -41,7 +61,7 @@ html{
 			}
 		}
 	}
-	textarea{
+	textarea, input{
 		outline: none; 
     	resize: none; 
 	}
@@ -82,26 +102,6 @@ html{
 							height: 20em;
 							border-radius: 10px;
 							margin: 0 auto 20px;
-						}
-					}
-					.btn{
-						width: 100%;
-						.submit{
-							outline: none; 
-							font-size: 1.5em;
-							margin: 0 auto;
-							width: auto;
-							border-radius: 10px;
-							background-color: $bg;
-							padding: 0 10px;
-							color: $forte;
-							border: $forte 1px solid;
-							transition: 0.3s;
-							&:hover{
-								background-color: $forte;
-								color: $bg;
-								transition: 0.3s;
-							}
 						}
 					}
 				}
@@ -171,6 +171,41 @@ html{
 					}
 				}
 			}
+		}
+	}
+	.sign-in{
+		height: calc(100vh - 100px);
+		background-color: $bg;
+		color: $forte;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.title{
+			text-align: center;
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		>form{
+			background-color: $bg;
+			color: $forte;
+			text-align: center;
+			width: 400px;
+			margin: 0 auto;
+			>p{
+				>label, >input{
+					width: 100%;
+				}
+				>input{
+					background-color: $bg;
+					border: $forte 1px solid;
+					color: white;
+					border-radius: 20px;
+				}
+			}
+		}
+		.msg{
+			margin: 20px auto;
 		}
 	}
 }
