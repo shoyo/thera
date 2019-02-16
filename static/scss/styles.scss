@@ -182,18 +182,22 @@ html{
 						color: $dash;
 					}
 					.card{
-						background-color: $bg2;
-						width: 75%;
+						width: 90%;
 						margin: 0 auto;
 						color: $dash;
+						background-color: $bg;
 						margin-bottom: 10px;
+						border: none;
+						display: flex;
+						flex-direction: row;
 					}
 					.album{
 						overflow: hidden;
-						width: calc(20% + 30px);
+						width: calc(25% - 30px);
 						display: flex;
 						justify-content: center;
 						flex-wrap: wrap;
+						margin: 0 15px;
 						transition: 0.3s;
 						>a{
 							width: 100%;
@@ -213,6 +217,24 @@ html{
 						&:hover{
 							transform: scale(1.1);
 							transition: 0.3s;
+						}
+					}
+				}
+				.articles{
+					.card{
+						.detail{
+							width: 90%;
+							padding: 0 20px;
+						}
+						.reddit-icon{
+							width: 10%;
+							display: flex;
+							justify-content: center;
+							margin: auto;
+							>img{
+								height: 50%;
+								width: 50%;
+							}
 						}
 					}
 				}
