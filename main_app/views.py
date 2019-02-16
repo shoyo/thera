@@ -57,7 +57,6 @@ def redirect_view(request):
 ## === USER AUTHENTICATION ===
 
 def signup(request):
-    form = UserSignUpForm(request.POST)
     if request.method == 'POST':
         form = UserSignUpForm(request.POST)
         if form.is_valid():
@@ -68,6 +67,7 @@ def signup(request):
             login(request, new_user)
             render(request, 'main_app/success.html', {'name': new_user.first_name})
     else:
+        form = UserSignUpForm()
         return render(request, 'main_app/signup.html', {'form': form})
 
 
@@ -77,12 +77,15 @@ def signin(request):
 
 
 def signin_view(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'main_app/dashboard.html', user)
+    if request == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'main_app/dashboard.html', user)
+        else:
+            return render(request, 'main_app/signin.html')
     else:
         return render(request, 'main_app/signin.html')
 
