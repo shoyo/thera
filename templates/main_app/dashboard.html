@@ -14,7 +14,7 @@
 {% block content %}
 	<div class="dash">
 		<div class="banner">
-			<h2 class="title">Welcome back, User</h2>
+			<h2 class="title">Welcome to the Dashboard</h2>
 		</div>
 		<div class="content">
 			<div class="recommendations hidden">
@@ -42,35 +42,80 @@
 						<a href={{ ret.music.3.0 }}><img src="{{ ret.music.3.1 }}" alt="album jacket" width="150" height="150"></a>
 						<p>{{ ret.music.3.2 }}</p>
 					</div>
-					<!-- <div class="card">
-						<p class="title">SAMPLE_TITLE</p>
-						<p class="img"><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="100" height="100"></p>
-						<p class="link"><a href=""></a></p>
-					</div> -->
 				</div>
 				<div class="articles">
 					<div class="title">
 						<p>Article</p>
 					</div>
 					<div class="card">
-						<p class="saying">SAMPLE_ARTICLE</p>
-						<p>stuff</p>
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.0.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.0.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.1.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.1.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.2.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.2.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.3.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.3.1}}">LINK</a></p>
+						</div>
 					</div>
 				</div>
 				<div class="books">
 					<div class="title">
 						<p>Books</p>
 					</div>
-					<div class="card">
-						<p class="saying">SAMPLE_BOOKED</p>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Book Cover" width="150" height="150"></a>
+						<p>SAMPLE_BOOK</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Book Cover" width="150" height="150"></a>
+						<p>SAMPLE_BOOK</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Book Cover" width="150" height="150"></a>
+						<p>SAMPLE_BOOK</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Book Cover" width="150" height="150"></a>
+						<p>SAMPLE_BOOK</p>
 					</div>
 				</div>
 				<div class="movies">
 					<div class="title">
 						<p>Movies</p>
 					</div>
-					<div class="card">
-						<p class="saying">SAMPLE_MOVIES</p>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Movie Cover" width="150" height="150"></a>
+						<p>SAMPLE_MOVIE</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Movie Cover" width="150" height="150"></a>
+						<p>SAMPLE_MOVIE</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Movie Cover" width="150" height="150"></a>
+						<p>SAMPLE_MOVIE</p>
+					</div>
+					<div class="album">
+						<a href={{ ret.music.0.0 }}><img src="{% static 'img/sample.jpg' %}" alt="Movie Cover" width="150" height="150"></a>
+						<p>SAMPLE_MOVIE</p>
 					</div>
 				</div>
 			</div>

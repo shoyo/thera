@@ -36,7 +36,7 @@ html {
           display: flex;
           align-content: center;
           justify-content: center;
-          width: 25%; }
+          width: 20%; }
           html header .nav-menu > ul > li > a {
             color: #101010;
             width: 100%;
@@ -114,15 +114,15 @@ html {
       text-align: center;
       display: table-cell; }
   html .dash .content {
-    background-color: rgba(255, 255, 255, 0.7); }
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0 80px; }
     html .dash .content .recommendations {
       width: 1000px;
-      margin: 0 auto;
-      padding-top: 40px; }
+      margin: 0 auto; }
       html .dash .content .recommendations .quote {
         width: 50%;
         margin: 0 auto;
-        color: white; }
+        color: #707070; }
         html .dash .content .recommendations .quote .saying {
           font-size: 2em; }
         html .dash .content .recommendations .quote .by {
@@ -139,19 +139,22 @@ html {
           width: 100%;
           font-size: 2em;
           margin-bottom: 20px;
-          color: white; }
+          color: #707070; }
         html .dash .content .recommendations .music .card, html .dash .content .recommendations .articles .card, html .dash .content .recommendations .movies .card, html .dash .content .recommendations .books .card {
-          background-color: gray;
-          width: 75%;
+          width: 90%;
           margin: 0 auto;
-          color: white;
-          margin-bottom: 10px; }
+          color: #707070;
+          margin-bottom: 10px;
+          border: none;
+          display: flex;
+          flex-direction: row; }
         html .dash .content .recommendations .music .album, html .dash .content .recommendations .articles .album, html .dash .content .recommendations .movies .album, html .dash .content .recommendations .books .album {
           overflow: hidden;
-          width: calc(20% + 30px);
+          width: calc(25% - 30px);
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
+          margin: 0 15px;
           transition: 0.3s; }
           html .dash .content .recommendations .music .album > a, html .dash .content .recommendations .articles .album > a, html .dash .content .recommendations .movies .album > a, html .dash .content .recommendations .books .album > a {
             width: 100%;
@@ -169,6 +172,28 @@ html {
           html .dash .content .recommendations .music .album:hover, html .dash .content .recommendations .articles .album:hover, html .dash .content .recommendations .movies .album:hover, html .dash .content .recommendations .books .album:hover {
             transform: scale(1.1);
             transition: 0.3s; }
+      html .dash .content .recommendations .articles .card {
+        background-color: transparent; }
+        html .dash .content .recommendations .articles .card .detail {
+          width: 90%;
+          padding: 0 20px;
+          margin: auto 0; }
+          html .dash .content .recommendations .articles .card .detail .title {
+            font-size: 1.5em;
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
+          html .dash .content .recommendations .articles .card .detail .link {
+            margin: 0; }
+        html .dash .content .recommendations .articles .card .reddit-icon {
+          width: 10%;
+          display: flex;
+          justify-content: center;
+          margin: auto; }
+          html .dash .content .recommendations .articles .card .reddit-icon > img {
+            height: 50%;
+            width: 50%; }
   html .sign-in {
     height: calc(100vh - 100px);
     background-color: transparent;
@@ -229,5 +254,3 @@ html {
       margin: 20px auto; }
       html .sign-up .msg > a {
         color: blue; }
-
-/*# sourceMappingURL=styles.css.map */
