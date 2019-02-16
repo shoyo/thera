@@ -43,7 +43,7 @@ html{
 					display: flex;
 					align-content: center;
 					justify-content: center;
-					width: 25%;
+					width: 20%;
 					>a{
 						color: $navtxt;
 						width: 100%;
@@ -152,10 +152,10 @@ html{
 		}
 		.content{
 			background-color: $bg;
+			padding: 40px 0 80px;
 			.recommendations{
 				width: 1000px;
 				margin: 0 auto;
-				padding-top: 40px;
 				.quote{
 					width: 50%;
 					margin: 0 auto;
@@ -182,18 +182,21 @@ html{
 						color: $dash;
 					}
 					.card{
-						background-color: $bg2;
-						width: 75%;
+						width: 90%;
 						margin: 0 auto;
 						color: $dash;
 						margin-bottom: 10px;
+						border: none;
+						display: flex;
+						flex-direction: row;
 					}
 					.album{
 						overflow: hidden;
-						width: calc(20% + 30px);
+						width: calc(25% - 30px);
 						display: flex;
 						justify-content: center;
 						flex-wrap: wrap;
+						margin: 0 15px;
 						transition: 0.3s;
 						>a{
 							width: 100%;
@@ -213,6 +216,33 @@ html{
 						&:hover{
 							transform: scale(1.1);
 							transition: 0.3s;
+						}
+					}
+				}
+				.articles{
+					.card{
+						background-color: transparent;
+						.detail{
+							width: 90%;
+							padding: 0 20px;
+							margin: auto 0;
+							.title{
+								font-size: 1.5em;
+								margin: 0;
+							}
+							.link{
+								margin: 0;
+							}
+						}
+						.reddit-icon{
+							width: 10%;
+							display: flex;
+							justify-content: center;
+							margin: auto;
+							>img{
+								height: 50%;
+								width: 50%;
+							}
 						}
 					}
 				}
