@@ -86,7 +86,8 @@ html {
   html .top #about {
     top: 100%;
     position: absolute;
-    width: 100%; }
+    width: 100%;
+    color: white; }
     html .top #about .content {
       width: 1000px;
       margin: 0 auto;
