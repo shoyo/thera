@@ -206,7 +206,7 @@ def get_reddit_url():
     client_id,client_secret,user_agent = reddit_credentials
     reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
 
-    list_subreddit = ['mademesmile','selfimprovement','GetMotivated']
+    list_subreddit = ['mademesmile','selfimprovement','GetMotivated','faithinhumanity']
     rand_subreddit = random.choice(list_subreddit)
     for submission in reddit.subreddit(rand_subreddit).hot(limit=4):
         post_id = submission.id
@@ -222,7 +222,7 @@ def get_reddit_url():
         post_title = post_title.replace(']','')
         post_title = post_title.lower()
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
-        store_link.append((post_title,url))
+        store_link.append((submission.title,url))
     return store_link
 
 
