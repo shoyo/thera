@@ -16,12 +16,11 @@ html{
 			border-radius: 10px;
 			background-color: $bg;
 			padding: 0 10px;
-			color: $forte;
+			color: $navtxt;
 			border: $forte 1px solid;
 			transition: 0.3s;
 			&:hover{
 				background-color: $forte;
-				color: $bg;
 				transition: 0.3s;
 			}
 		}
@@ -186,11 +185,12 @@ html{
 	}
 	.sign-in{
 		height: calc(100vh - 100px);
-		background-color: $bg;
+		background-color: transparent;
 		color: $forte;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		overflow: hidden;
 		.title{
 			text-align: center;
 			font-size: 2em;
@@ -199,10 +199,12 @@ html{
 		}
 		>form{
 			background-color: $bg;
-			color: $forte;
+			color: $navtxt;
 			text-align: center;
 			width: 400px;
 			margin: 0 auto;
+			padding: 20px;
+			border-radius: 20px;
 			>p{
 				>label, >input{
 					width: 100%;
@@ -210,7 +212,7 @@ html{
 				>input{
 					background-color: $bg;
 					border: $forte 1px solid;
-					color: white;
+					color: $navtxt;
 					border-radius: 20px;
 				}
 			}
