@@ -33,7 +33,8 @@ def index(request):
 
 def dashboard(request):
     text = request.GET['input']
-    emotion = get_emotion(text)
+    emotion = "happy"
+    # emotion = get_emotion(text)
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
