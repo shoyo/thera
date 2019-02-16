@@ -25,7 +25,7 @@ html {
     color: white;
     height: 80px; }
     html header .nav-menu {
-      width: 25%; }
+      width: 40%; }
       html header .nav-menu > ul {
         height: 100%;
         display: flex;
@@ -36,7 +36,7 @@ html {
           display: flex;
           align-content: center;
           justify-content: center;
-          width: 33.333%; }
+          width: 25%; }
           html header .nav-menu > ul > li > a {
             color: #101010;
             width: 100%;
@@ -77,7 +77,7 @@ html {
           html .top .main-input > form .box .feeling-input {
             background-color: rgba(255, 255, 255, 0.7);
             border: white 1px solid;
-            color: white;
+            color: #101010;
             width: 100%;
             height: 20em;
             border-radius: 10px;
@@ -102,7 +102,7 @@ html {
   html .dash .banner {
     width: 100%;
     height: 200px;
-    background-color: gray;
+    background-color: transparent;
     color: white;
     display: table; }
     html .dash .banner .title {
@@ -116,35 +116,47 @@ html {
     background-color: rgba(255, 255, 255, 0.7); }
     html .dash .content .recommendations {
       width: 1000px;
-      margin: 0 auto; }
-      html .dash .content .recommendations > div {
-        margin-bottom: 40px; }
-      html .dash .content .recommendations .quotes, html .dash .content .recommendations .music, html .dash .content .recommendations .articles, html .dash .content .recommendations .movies, html .dash .content .recommendations .books {
+      margin: 0 auto;
+      padding-top: 40px; }
+      html .dash .content .recommendations .quote {
+        width: 50%;
+        margin: 0 auto;
+        color: white; }
+        html .dash .content .recommendations .quote .saying {
+          font-size: 2em; }
+        html .dash .content .recommendations .quote .by {
+          font-size: 1em;
+          text-align: right; }
+      html .dash .content .recommendations .music, html .dash .content .recommendations .articles, html .dash .content .recommendations .movies, html .dash .content .recommendations .books {
         display: flex;
-        flex-wrap: wrap; }
-        html .dash .content .recommendations .quotes .title, html .dash .content .recommendations .music .title, html .dash .content .recommendations .articles .title, html .dash .content .recommendations .movies .title, html .dash .content .recommendations .books .title {
+        flex-wrap: wrap;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 40px; }
+        html .dash .content .recommendations .music .title, html .dash .content .recommendations .articles .title, html .dash .content .recommendations .movies .title, html .dash .content .recommendations .books .title {
           width: 100%;
           font-size: 2em;
           margin-bottom: 20px;
           color: white; }
-        html .dash .content .recommendations .quotes .card, html .dash .content .recommendations .music .card, html .dash .content .recommendations .articles .card, html .dash .content .recommendations .movies .card, html .dash .content .recommendations .books .card {
+        html .dash .content .recommendations .music .card, html .dash .content .recommendations .articles .card, html .dash .content .recommendations .movies .card, html .dash .content .recommendations .books .card {
           background-color: gray;
           width: 75%;
           margin: 0 auto;
           color: white;
           margin-bottom: 10px; }
-        html .dash .content .recommendations .quotes .album, html .dash .content .recommendations .music .album, html .dash .content .recommendations .articles .album, html .dash .content .recommendations .movies .album, html .dash .content .recommendations .books .album {
+        html .dash .content .recommendations .music .album, html .dash .content .recommendations .articles .album, html .dash .content .recommendations .movies .album, html .dash .content .recommendations .books .album {
           overflow: hidden;
           width: calc(20% + 30px);
           display: flex;
           justify-content: center;
           flex-wrap: wrap; }
-          html .dash .content .recommendations .quotes .album > a, html .dash .content .recommendations .music .album > a, html .dash .content .recommendations .articles .album > a, html .dash .content .recommendations .movies .album > a, html .dash .content .recommendations .books .album > a {
+          html .dash .content .recommendations .music .album > a, html .dash .content .recommendations .articles .album > a, html .dash .content .recommendations .movies .album > a, html .dash .content .recommendations .books .album > a {
             width: 100%;
             display: flex;
             justify-content: center;
             margin-bottom: 5px; }
-          html .dash .content .recommendations .quotes .album > p, html .dash .content .recommendations .music .album > p, html .dash .content .recommendations .articles .album > p, html .dash .content .recommendations .movies .album > p, html .dash .content .recommendations .books .album > p {
+          html .dash .content .recommendations .music .album > p, html .dash .content .recommendations .articles .album > p, html .dash .content .recommendations .movies .album > p, html .dash .content .recommendations .books .album > p {
             font-size: 0.8em;
             width: 80%;
             margin: 0 auto;
