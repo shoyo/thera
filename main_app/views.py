@@ -1,5 +1,6 @@
 import os
 import random
+import datetime
 import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -22,8 +23,9 @@ except ImportError:
 # ==== GENERAL VIEWS =====
 
 def index(request):
-    datetime =
-    return render(request, 'main_app/index.html', datetime)
+    # dt = datetime.datetime.now()
+    # formatted_dt =
+    return render(request, 'main_app/index.html')
 
 
 def dashboard(request):
