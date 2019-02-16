@@ -159,7 +159,7 @@ def get_music_url_and_image(emotion):
 
 def get_reddit_url(emotion):
     """Get reddit discussion url"""
-
+    store_link = [] #stores 4 subreddit link
     client_id,client_secret,user_agent = reddit_credentials
     reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
 
@@ -179,7 +179,8 @@ def get_reddit_url(emotion):
         post_title = post_title.replace(']','')
         post_title = post_title.lower()
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
-    return 1
+        store_link.append(url)
+    return store_link
 
 def doctor(ip_address):
     """Get doctor data"""
