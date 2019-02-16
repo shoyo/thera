@@ -4,10 +4,15 @@
 {% block page_title %}Sign in{% endblock %}
 
 {% block content %}
-<form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Sign in</button>
-</form>
-<h5>Don't have an account? Sign up <a href="{% url 'signup' %}">here</a>.</h5>
+<div class="sign-in">
+	<!-- <div class="title">Sign In</div> -->
+	<form action='{% url "signin_attempt" %}' method="POST" class="post-form">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <div class="btn">
+			<button type="submit" class="submit">Sign in</button>
+		</div>
+		<p class="msg">Don't have an account? Sign up <a href="{% url 'signup' %}">here</a></p>	
+	</form>
+</div>
 {% endblock %}

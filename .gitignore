@@ -6,7 +6,8 @@ main_app/api_keys.py
 main_project/__pycache__
 main_app/__pycache__
 main_app/migrations/__pycache__
-barinstorm.txt
+staticfiles
+brainstorm.txt
 .idea
 .DS_Store
 static/compiler

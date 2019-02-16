@@ -1,16 +1,37 @@
 @import "color";
 
 html{
-	background-color: $bg;
+	// background-color: $bg;
 	font-family: "Gravity-Regular", "Arial", Times, serif;
 	.hidden{
 		display: none;
+	}
+	.btn{
+		width: 100%;
+		.submit{
+			outline: none;
+			font-size: 1em;
+			margin: 0 auto;
+			width: auto;
+			border-radius: 10px;
+			background-color: $bg;
+			padding: 0 10px;
+			color: $forte;
+			border: $forte 1px solid;
+			transition: 0.3s;
+			&:hover{
+				background-color: $forte;
+				color: $bg;
+				transition: 0.3s;
+			}
+		}
 	}
 	header{
 		display: flex;
 		justify-content: space-between;
 		background-color: $bg;
 		color: $forte;
+		height: 80px;
 		.nav-menu{
 			width: 25%;
 			>ul{
@@ -40,22 +61,18 @@ html{
 			}
 		}
 	}
-	textarea{
+	textarea, input{
 		outline: none;
     	resize: none;
 	}
 	.top{
-		background-color: $bg;
+		// background-color: $bg;
 		.landing{
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
+			height: calc(100vh - 100px);
 		}
 		.main{
 			top: 50%;
-			transform: translateY(-50%);
+			transform: translateY(-60%);
 			position: relative;
 			&-message{
 				display: flex;
@@ -87,26 +104,6 @@ html{
 							margin: 0 auto 20px;
 						}
 					}
-					.btn{
-						width: 100%;
-						.submit{
-							outline: none;
-							font-size: 1.5em;
-							margin: 0 auto;
-							width: auto;
-							border-radius: 10px;
-							background-color: $bg;
-							padding: 0 10px;
-							color: $forte;
-							border: $forte 1px solid;
-							transition: 0.3s;
-							&:hover{
-								background-color: $btnhvr;
-								color: $forte;
-								transition: 0.3s;
-							}
-						}
-					}
 				}
 			}
 		}
@@ -119,6 +116,18 @@ html{
 				p{
 					text-overflow: ellipsis;
 					overflow-wrap: break-word;
+				}
+				// color: $bg;
+				// background-color: $forte;
+				overflow: auto;
+				.content{
+					width: 1000px;
+					margin: 0 auto;
+					padding: 40px 0 40px;
+					.title{
+						font-size: 2em;
+						font-weight: bold;
+					}
 				}
 			}
 		}
@@ -170,6 +179,44 @@ html{
 						justify-content: center;
 					}
 				}
+			}
+		}
+	}
+	.sign-in{
+		height: calc(100vh - 100px);
+		background-color: $bg;
+		color: $forte;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.title{
+			text-align: center;
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		>form{
+			background-color: $bg;
+			color: $forte;
+			text-align: center;
+			width: 400px;
+			margin: 0 auto;
+			>p{
+				>label, >input{
+					width: 100%;
+				}
+				>input{
+					background-color: $bg;
+					border: $forte 1px solid;
+					color: white;
+					border-radius: 20px;
+				}
+			}
+		}
+		.msg{
+			margin: 20px auto;
+			>a{
+				color: $link;
 			}
 		}
 	}

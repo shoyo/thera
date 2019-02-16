@@ -4,7 +4,7 @@ function happySet(){
     particles[i] = new TravPart();
   }
 
-  count = 2;
+  count = 1;
   sparks = new Array(count);
   for (var i=0;i<sparks.length;i++){
     sparks[i] = new Spark(random(0,width), random(0,height), 200, 15, 4, 0, 5);
@@ -21,7 +21,7 @@ function happyDraw(t){
     particles[i].deploy();
   }
 
-  for (i=0;i<count;i++){
+  for (var i=0;i<count;i++){
     sparks[i].light();
   }
 
