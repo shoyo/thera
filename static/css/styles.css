@@ -137,7 +137,18 @@ html {
           overflow: hidden;
           width: calc(20% + 30px);
           display: flex;
-          justify-content: center; }
+          justify-content: center;
+          flex-wrap: wrap; }
+          html .dash .content .recommendations .quotes .album > a, html .dash .content .recommendations .music .album > a, html .dash .content .recommendations .articles .album > a, html .dash .content .recommendations .movies .album > a, html .dash .content .recommendations .books .album > a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px; }
+          html .dash .content .recommendations .quotes .album > p, html .dash .content .recommendations .music .album > p, html .dash .content .recommendations .articles .album > p, html .dash .content .recommendations .movies .album > p, html .dash .content .recommendations .books .album > p {
+            font-size: 0.8em;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center; }
   html .sign-in {
     height: calc(100vh - 100px);
     background-color: transparent;

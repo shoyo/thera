@@ -178,6 +178,19 @@ html{
 						width: calc(20% + 30px);
 						display: flex;
 						justify-content: center;
+						flex-wrap: wrap;
+						>a{
+							width: 100%;
+							display: flex;
+							justify-content: center;
+							margin-bottom: 5px;
+						}
+						>p{
+							font-size: 0.8em;
+							width: 80%;
+							margin: 0 auto;
+							text-align: center;
+						}
 					}
 				}
 			}
