@@ -18,6 +18,10 @@ canvas.backgroundsketch {
   background-color: rgba(0,0,0,0.2);
 }
 
+.land{
+  background-image: linear-gradient(80deg, #FF9391, #1BBDC0);
+}
+
 .angry{
   background-image: linear-gradient(80deg, #FF1E1E,
 #FF5577);
@@ -38,7 +42,7 @@ background-image: linear-gradient(80deg, #FF1E1E,
 }
 
 .happiness{
-  background-image: linear-gradient(80deg, #FF9391, #1BBDC0);
+  background-image: linear-gradient(80deg, #F2AF3D, #EFD7CD);
 }
 
 .neutral{
