@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
+from .models import User
 from .local_spotify_credentials import credentials
 
 try:
@@ -58,7 +59,14 @@ def redirect_view(request):
 def signup(request):
     form = UserSignUpForm(request.POST)
     if request.method == 'POST':
-        pass
+        form = UserSignUpForm(request.POST)
+        if form.is_valid():
+            new_user = User(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'],
+                            username=form.cleaned_data['username'], password=form.cleaned_data['password'],
+                            email=form.cleaned_data['email'])
+            new_user.save()
+            login(request, new_user)
+            render(request, 'main_app/success.html', {'name': new_user.first_name})
     else:
         return render(request, 'main_app/signup.html', {'form': form})
 
