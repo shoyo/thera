@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Getting Help{% endblock %}
+
+{% block content %}
+It's crucial when dealing with difficult situations in your life that you consult somebody that will take you seriously.
+These certified, professional medical experts are here to help.
+
+{% for expert in experts %}
+{{ expert.name }}
+{% endfor %}
+
+{% endblock %}
