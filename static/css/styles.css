@@ -36,7 +36,7 @@ html {
           display: flex;
           align-content: center;
           justify-content: center;
-          width: 25%; }
+          width: 20%; }
           html header .nav-menu > ul > li > a {
             color: #101010;
             width: 100%;
@@ -114,11 +114,11 @@ html {
       text-align: center;
       display: table-cell; }
   html .dash .content {
-    background-color: rgba(255, 255, 255, 0.7); }
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0 80px; }
     html .dash .content .recommendations {
       width: 1000px;
-      margin: 0 auto;
-      padding-top: 40px; }
+      margin: 0 auto; }
       html .dash .content .recommendations .quote {
         width: 50%;
         margin: 0 auto;
@@ -180,7 +180,10 @@ html {
           margin: auto 0; }
           html .dash .content .recommendations .articles .card .detail .title {
             font-size: 1.5em;
-            margin: 0; }
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
           html .dash .content .recommendations .articles .card .detail .link {
             margin: 0; }
         html .dash .content .recommendations .articles .card .reddit-icon {
