@@ -23,7 +23,8 @@ html {
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.7);
     color: white;
-    height: 80px; }
+    height: 80px;
+    margin-bottom: 40px; }
     html header .nav-menu {
       width: 25%; }
       html header .nav-menu > ul {
@@ -169,4 +170,32 @@ html {
     html .sign-in .msg {
       margin: 20px auto; }
       html .sign-in .msg > a {
+        color: blue; }
+  html .sign-up {
+    background-color: transparent;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; }
+    html .sign-up > form {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #101010;
+      text-align: center;
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 20px; }
+      html .sign-up > form > p > label, html .sign-up > form > p > input {
+        width: 100%; }
+      html .sign-up > form > p > input {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: white 1px solid;
+        color: #101010;
+        border-radius: 20px; }
+      html .sign-up > form > ul {
+        display: none; }
+    html .sign-up .msg {
+      margin: 20px auto; }
+      html .sign-up .msg > a {
         color: blue; }

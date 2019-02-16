@@ -31,6 +31,7 @@ html{
 		background-color: $bg;
 		color: $forte;
 		height: 80px;
+		margin-bottom: 40px;
 		.nav-menu{
 			width: 25%;
 			>ul{
@@ -215,6 +216,43 @@ html{
 					color: $navtxt;
 					border-radius: 20px;
 				}
+			}
+		}
+		.msg{
+			margin: 20px auto;
+			>a{
+				color: $link;
+			}
+		}
+	}
+	.sign-up{
+		background-color: transparent;
+		color: $forte;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		overflow: hidden;
+		>form{
+			background-color: $bg;
+			color: $navtxt;
+			text-align: center;
+			width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+			border-radius: 20px;
+			>p{
+				>label, >input{
+					width: 100%;
+				}
+				>input{
+					background-color: $bg;
+					border: $forte 1px solid;
+					color: $navtxt;
+					border-radius: 20px;
+				}
+			}
+			>ul{
+				display: none;
 			}
 		}
 		.msg{
