@@ -31,7 +31,6 @@ html{
 		background-color: $bg;
 		color: $forte;
 		height: 80px;
-		margin-bottom: 40px;
 		.nav-menu{
 			width: 25%;
 			>ul{
@@ -237,7 +236,7 @@ html{
 			color: $navtxt;
 			text-align: center;
 			width: 400px;
-			margin: 0 auto;
+			margin: 40px auto;
 			padding: 20px;
 			border-radius: 20px;
 			>p{
