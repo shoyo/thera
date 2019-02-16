@@ -15,18 +15,10 @@
 			<h2 class="title">Welcome back, User</h2>
 		</div>
 		<div class="content">
-			<div class="sidebar">
-				
-			</div>
 			<div class="recommendations hidden">
-				<div class="quotes">
-					<div class="title">
-						<p>Quotes</p>
-					</div>
-					<div class="card">
-						<p class="saying">{{ ret.quote.0 }}<br>
-						-- {{ ret.quote.1.upper }}</p>
-					</div>
+				<div class="quote">
+					<p class="saying">"{{ ret.quote.0 }}"</p>
+					<p class="by">-{{ ret.quote.1.upper }}</p>
 				</div>
 				<div class="music">
 					<div class="title">

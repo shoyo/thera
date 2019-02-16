@@ -12,7 +12,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
+<<<<<<< HEAD
+from .models import User
 from .local_api_credentials import spotify_credentials,reddit_credentials
+=======
+from .models import User
+from .local_api_credentials import spotify_credentials,reddit_credentials
+>>>>>>> 3f813df1aa7f211f479217541a62079172d94658
 
 try:
     from .api_keys import RAPID_API_KEY
@@ -59,7 +65,14 @@ def redirect_view(request):
 def signup(request):
     form = UserSignUpForm(request.POST)
     if request.method == 'POST':
-        pass
+        form = UserSignUpForm(request.POST)
+        if form.is_valid():
+            new_user = User(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'],
+                            username=form.cleaned_data['username'], password=form.cleaned_data['password'],
+                            email=form.cleaned_data['email'])
+            new_user.save()
+            login(request, new_user)
+            render(request, 'main_app/success.html', {'name': new_user.first_name})
     else:
         return render(request, 'main_app/signup.html', {'form': form})
 
