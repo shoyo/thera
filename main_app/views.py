@@ -3,6 +3,7 @@ import random
 import datetime
 import requests
 import spotipy
+import praw
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
@@ -11,7 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
-from .local_spotify_credentials import credentials
+from .local_api_credentials import spotify_credentials,reddit_credentials
 
 try:
     from .api_keys import RAPID_API_KEY
@@ -136,7 +137,7 @@ def get_music_url_and_image(emotion):
     """
     ret = []
     ret_count = 4
-    username, client_id, client_secret = credentials
+    username, client_id, client_secret = spotify_credentials
     manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     spotify = spotipy.Spotify(client_credentials_manager=manager)
     response = spotify.search(q=emotion, limit=ret_count, type='playlist')
@@ -146,6 +147,33 @@ def get_music_url_and_image(emotion):
         title = response['playlists']['items'][i]['name']
         ret.append((url, image, title))
     return ret
+
+
+def get_reddit_url(emotion):
+    """Get reddit discussion url"""
+
+    client_id,client_secret,user_agent = reddit_credentials
+    reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
+
+    list_subreddit = ['mademesmile','selfimprovement','GetMotivated']
+    choose_random_subreddit = random.choice(list_subreddit)
+    for submission in reddit.subreddit(rand_subreddit).hot(limit=4):
+        post_id = submission.id
+        post_title = submission.title
+        store = []
+        for chara in post_title:
+            if chara == ' ' :
+                store.append('_')
+            else:
+                store.append(chara)
+        post_title = ''.join(store)
+        post_title = post_title.replace('[','')
+        post_title = post_title.replace(']','')
+        post_title = post_title.lower()
+        url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
+    return 
+
+
 
 
 ## General helper functions (used in every API call)

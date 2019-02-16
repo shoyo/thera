@@ -8,7 +8,7 @@ reddit = praw.Reddit(client_id='g1urkS6sO5LI7A',
 list_subreddit = ['mademesmile','selfimprovement','GetMotivated']
 rand_subreddit = random.choice(list_subreddit)
 
-for submission in reddit.subreddit(rand_subreddit).hot(limit=10):
+for submission in reddit.subreddit(rand_subreddit).hot(limit=4):
     post_id = submission.id
     post_title = submission.title
     #print(post_id,post_title)
