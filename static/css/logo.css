@@ -1,0 +1,20 @@
+.logo{
+  position: static;
+  display: inline-block;
+  height: 56px;
+  width: 226px;
+  margin: 12px;
+  /* background-color: red; */
+  background-image:
+                    url('../img/logo/TheraLogoTypeCrop.png')
+                    /* url('../img/logo/TheraLogoTypeCropGrey.png') */
+                    /* , */
+                    /* url('../img/logo/TheraLogoTypeCropRed.png') */
+                    /* , */
+                    /* url('../img/logo/TheraLogoTypeCropGreen.png') */
+                    /* , */
+                    /* url('../img/logo/TheraLogoTypeCropBlue.png') */
+                    ;
+  background-size: contain;
+  /* background-blend-mode:color-dodge; */
+}

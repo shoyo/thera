@@ -8,14 +8,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sketch.css' %}">
     <title>{% block page_title %}{% endblock %} | Thera</title>
     {% block style %}{% endblock %}
+
+    <!-- P5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="{% static 'js/sketch/sketch.js' %}"></script>
+    <script src="{% static 'js/sketch/ripple.js' %}"></script>
+    <script src="{% static 'js/sketch/spark.js' %}"></script>
+    <script src="{% static 'js/sketch/travPart.js' %}"></script>
+    <script src="{% static 'js/sketch/flowField.js' %}"></script>
+    <script src="{% static 'js/sketch/happySketch.js' %}"></script>
+    <script src="{% static 'js/sketch/sadSketch.js' %}"></script>
+
 </head>
 <body>
   <script>{% block scripts %}{% endblock %}</script>
   <div>
     <header>
-      <a class="logo" href="{% url 'index' %}"><h1>Thera</h1></a>
+      <a class="logo" href="{% url 'index' %}"></a>
       <nav class="nav-menu">
         <ul>
         <li>
@@ -30,6 +44,7 @@
       </ul>
       </nav>
     </header>
+    <div id="fps"></div>
   </div>
 
 {% block content %}{% endblock %}

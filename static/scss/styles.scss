@@ -1,7 +1,7 @@
 @import "color";
 
 html{
-	background-color: $bg;
+	// background-color: $bg;
 	font-family: "Gravity-Regular", "Arial", Times, serif;
 	.hidden{
 		display: none;
@@ -9,19 +9,18 @@ html{
 	.btn{
 		width: 100%;
 		.submit{
-			outline: none; 
+			outline: none;
 			font-size: 1em;
 			margin: 0 auto;
 			width: auto;
 			border-radius: 10px;
 			background-color: $bg;
 			padding: 0 10px;
-			color: $forte;
+			color: $navtxt;
 			border: $forte 1px solid;
 			transition: 0.3s;
 			&:hover{
 				background-color: $forte;
-				color: $bg;
 				transition: 0.3s;
 			}
 		}
@@ -31,7 +30,7 @@ html{
 		justify-content: space-between;
 		background-color: $bg;
 		color: $forte;
-		height: 100px;
+		height: 80px;
 		.nav-menu{
 			width: 25%;
 			>ul{
@@ -46,7 +45,7 @@ html{
 					justify-content: center;
 					width: 33.333%;
 					>a{
-						color: $forte;
+						color: $navtxt;
 						width: 100%;
 						transition: 0.3s;
 						text-align: center;
@@ -62,11 +61,11 @@ html{
 		}
 	}
 	textarea, input{
-		outline: none; 
-    	resize: none; 
+		outline: none;
+    	resize: none;
 	}
 	.top{
-		background-color: $bg;
+		// background-color: $bg;
 		.landing{
 			height: calc(100vh - 100px);
 		}
@@ -108,17 +107,28 @@ html{
 			}
 		}
 		#about{
-			color: $bg;
-			background-color: $forte;
-			overflow: auto;
+			top: 100%;
+			position: absolute;
+			width: 100%;
+			color: $forte;
 			.content{
 				width: 1000px;
 				margin: 0 auto;
 				padding: 40px 0 40px;
 				.title{
-					font-size: 2em;
-					font-weight: bold;
-
+					>p{
+						font-size: 2em;
+						font-weight: bold;
+					}
+				}
+				.text-box{
+					p{
+						text-overflow: ellipsis;
+						overflow-wrap: break-word;
+					}
+					// color: $bg;
+					// background-color: $forte;
+					overflow: auto;
 				}
 			}
 		}
@@ -150,7 +160,7 @@ html{
 				.quotes, .music, .articles, .movies, .books{
 					display: flex;
 					flex-wrap: wrap;
-					.title{	
+					.title{
 						width: 100%;
 						font-size: 2em;
 						margin-bottom: 20px;
@@ -175,11 +185,12 @@ html{
 	}
 	.sign-in{
 		height: calc(100vh - 100px);
-		background-color: $bg;
+		background-color: transparent;
 		color: $forte;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		overflow: hidden;
 		.title{
 			text-align: center;
 			font-size: 2em;
@@ -188,10 +199,12 @@ html{
 		}
 		>form{
 			background-color: $bg;
-			color: $forte;
+			color: $navtxt;
 			text-align: center;
 			width: 400px;
 			margin: 0 auto;
+			padding: 20px;
+			border-radius: 20px;
 			>p{
 				>label, >input{
 					width: 100%;
@@ -199,7 +212,7 @@ html{
 				>input{
 					background-color: $bg;
 					border: $forte 1px solid;
-					color: white;
+					color: $navtxt;
 					border-radius: 20px;
 				}
 			}
