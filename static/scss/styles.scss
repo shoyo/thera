@@ -46,26 +46,28 @@ html{
 	}
 	.top{
 		background-color: $bg;
+		.landing{
+			position: absolute;
+			top: 0; 
+			right: 0; 
+			bottom: 0; 
+			left: 0;
+		}
 		.main{
+			top: 50%;
+			transform: translateY(-50%);
+			position: relative;
 			&-message{
 				display: flex;
 				width: 100%;
 				justify-content: center;
 				align-content: center;
 				color: $forte;
-				height: 150px;
 				font-size: 50px;
+				margin-bottom: 40px;
 				p{
 					margin: auto;
 				}
-			}
-			&-date{
-				display: flex;
-				width: 100%;
-				justify-content: center;
-				align-content: center;
-				text-align: center;
-				color: white;
 			}
 			&-input{
 				display: flex;
@@ -107,6 +109,10 @@ html{
 					}
 				}
 			}
+		}
+		#about{
+			top: 100%;
+			position: absolute;
 		}
 	}
 	.dash{

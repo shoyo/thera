@@ -12,19 +12,29 @@
 
 {% block content %}
   	<div class="top">
-  		<div class="main-message">
-  			<p class="hidden">How are you feeling today?</p>
-  		</div>
-  		<div class="main-input">
-  			<form action="{% url 'dashboard' %}" method="get">
-				{% csrf_token %}
-				<div class="box">
-					<textarea class="feeling-input" id="input" name="input" type="text" placeholder="Today on DATE_GOES_HERE..."></textarea>
-				</div>
-				<div class="btn">
-					<input type="submit" class="submit" value="Submit">
-				</div>
-			</form>
-  		</div>
+  		<div class="landing">
+	  		<div class="main hidden">
+	  			<div class="main-message">
+		  			<p>How are you feeling?</p>
+		  		</div>
+		  		<div class="main-input">
+		  			<form action="{% url 'dashboard' %}" method="get">
+						{% csrf_token %}
+						<div class="box">
+							<textarea class="feeling-input" id="input" name="input" type="text" placeholder="Today on DATE_GOES_HERE..."></textarea>
+						</div>
+						<div class="btn">
+							<input type="submit" class="submit" value="Submit">
+						</div>
+					</form>
+		  		</div>
+	  		</div>
+	  	</div>
+	  	<div id="about">
+	  		<div class="title"><p>About</p></div>
+	  		<div class="text-box">
+	  			<p>SAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXTSAMPLETEXT</p>
+	  		</div>
+	  	</div>
 	</div>
 {% endblock %}
