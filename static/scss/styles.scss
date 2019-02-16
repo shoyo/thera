@@ -229,6 +229,9 @@ html{
 							.title{
 								font-size: 1.5em;
 								margin: 0;
+								text-overflow: ellipsis;
+								overflow: hidden;
+								white-space: nowrap;
 							}
 							.link{
 								margin: 0;

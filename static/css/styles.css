@@ -180,7 +180,10 @@ html {
           margin: auto 0; }
           html .dash .content .recommendations .articles .card .detail .title {
             font-size: 1.5em;
-            margin: 0; }
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
           html .dash .content .recommendations .articles .card .detail .link {
             margin: 0; }
         html .dash .content .recommendations .articles .card .reddit-icon {
