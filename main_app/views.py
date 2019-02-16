@@ -13,7 +13,7 @@ from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
 from .models import User
-from .local_api_credentials import spotify_credentials,reddit_credentials
+from .local_api_credentials import spotify_credentials,reddit_credentials, doctor_credentials
 
 try:
     from .api_keys import RAPID_API_KEY
@@ -179,7 +179,33 @@ def get_reddit_url(emotion):
         post_title = post_title.replace(']','')
         post_title = post_title.lower()
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
-    return 
+    return 1
+
+def doctor(ip_address):
+    """Get doctor data"""
+    response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
+        headers={
+            "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
+        }
+    )
+    doctor_api_key = doctor_credentials
+    location = response.json()
+    latitude = float(location['ip']['latitude'])
+    longitude = float(location['ip']['longitude'])
+    query = 'https://api.betterdoctor.com/2016-03-01/practices?'+loc+'%2C100&user_location='+str(latitude)+'%2C'+str(longitude)+'&skip=0&limit=3&user_key='+api_key
+    find_doc = requests.get(query)
+    for pos in range(len(result['data'])):
+        if result['data'][pos]['total_doctors'] == 0:
+            print('No doctor')
+            pass
+        else:
+            name =result['data'][pos]['doctors'][0]['profile']['first_name'] + result['data'][pos]['doctors'][0]['profile']['last_name']
+            url_img = result['data'][pos]['doctors'][0]['profile']['image_url']
+            specialty = result['data'][pos]['doctors'][0]['specialties'][0]['description']
+            city = result['data'][pos]['visit_address']['city']
+            state = result['data'][pos]['visit_address']['state']
+            #print(name,url_img,specialty,state,'-',city)
+    return 1
 
 
 
