@@ -38,7 +38,9 @@ def dashboard(request):
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
-    ret = {'quote': quote, 'music': music}
+    reddit_info = get_reddit_url()
+
+    ret = {'quote': quote, 'music': music,'reddit':reddit_info}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
@@ -167,14 +169,14 @@ def get_music_url_and_image(emotion):
     return ret
 
 
-def get_reddit_url(emotion):
+def get_reddit_url():
     """Get reddit discussion url"""
     store_link = [] #stores 4 subreddit link
     client_id,client_secret,user_agent = reddit_credentials
     reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
 
     list_subreddit = ['mademesmile','selfimprovement','GetMotivated']
-    choose_random_subreddit = random.choice(list_subreddit)
+    rand_subreddit = random.choice(list_subreddit)
     for submission in reddit.subreddit(rand_subreddit).hot(limit=4):
         post_id = submission.id
         post_title = submission.title
@@ -189,7 +191,7 @@ def get_reddit_url(emotion):
         post_title = post_title.replace(']','')
         post_title = post_title.lower()
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
-        store_link.append(url)
+        store_link.append((post_title,url))
     return store_link
 
 
