@@ -1,6 +1,10 @@
-function FlowField() {
-  // this.scl = scl;
-  this.scl = (height)/40;
+function FlowField(scl,rng) {
+  if(scl>0) {
+    this.scl = height/scl;
+  } else {
+    this.scl = height/40;
+  }
+  this.range = rng;
   this.inc = 0.1;
   this.c = floor(width / this.scl);
   this.r = floor(height / this.scl);
@@ -15,7 +19,7 @@ FlowField.prototype.update = function(){
     var xoff = 0;
     for (var x = 0; x < this.c; x++) {
       var ind = x + y * this.c;
-      var angle = noise(xoff, yoff, this.zoff) * TWO_PI * 3;
+      var angle = noise(xoff, yoff, this.zoff) * TWO_PI * this.range;
       var v = p5.Vector.fromAngle(angle);
       v.setMag(1);
       flowField[ind] = v;

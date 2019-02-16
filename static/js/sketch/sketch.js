@@ -6,8 +6,8 @@ var height;
 var r = 0;
 var cl = 0;
 
-var moods = ['land','happiness', 'sadness'];
-var mood = moods[0];
+var moods = ['sadness','land','joy'];
+var mood = moods[1];
 
 var ripples = [];
 var sparks = [];
@@ -17,7 +17,8 @@ var flowField;
 function setup() {
   updateWindowSize();
   var myCanvas = createCanvas(width, height);
-  setMoodAnimation(myCanvas,mood);
+  myCanvas.class('backgroundsketch '+mood);
+  setMoodAnimation(mood);
 }
 
 function draw(){
@@ -29,8 +30,8 @@ function draw(){
         landingDraw(cl);
         break;
 
-      case 'happiness' :
-        happyDraw(cl);
+      case 'joy' :
+        joyDraw(cl);
         break;
 
       case 'sadness' :
@@ -58,26 +59,6 @@ function draw(){
 //       }
 //     }
 //   }
-//
-//   if (keyCode === RIGHT_ARROW) {
-//     if (moods.indexOf(mood)==mood.length-1) {
-//       mood = moods[0];
-//     } else {
-//       mood = moods[moods.indexOf(mood)+1];
-//     }
-//     console.log(moods,moods.indexOf(mood),mood);
-//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
-//   }
-//
-//   if (keyCode === LEFT_ARROW) {
-//     if (moods.indexOf(mood)==0) {
-//       mood = moods[moods.length-1];
-//     } else {
-//       mood = moods[moods.indexOf(mood)-1];
-//     }
-//     console.log(moods,moods.indexOf(mood),mood);
-//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
-//   }
 // }
 
 function windowResized() {
@@ -101,16 +82,18 @@ function updateWindowSize(){
   );
 }
 
-function setMoodAnimation(canvas,mood){
-  console.log(canvas);
-  canvas.class('backgroundsketch '+mood);
+// function setMood(m){
+//   mood = m;
+// }
+
+function setMoodAnimation(mood){
     switch(mood){
       case 'land' :
         landingSet();
         break;
 
-      case 'happiness' :
-        happySet();
+      case 'joy' :
+        joySet();
         break;
 
       case 'sadness' :
