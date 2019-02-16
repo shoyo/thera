@@ -12,6 +12,7 @@ canvas.backgroundsketch {
 }
 
 #fps{
+  display: none;
   position: fixed;
   top:84px;
   left: 3px;

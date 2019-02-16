@@ -54,12 +54,26 @@ function draw(){
   }
 }
 
-function mouseClicked() {
-  if (animation) {
-    animation = false;
-  } else {
-    animation = true;
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    if (animation) {
+      animation = false;
+    } else {
+      animation = true;
+    }
   }
+
+  if (keyCode === DOWN_ARROW) {
+    if (animation) {
+      if(document.getElementById('fps').style.display === 'none'){
+        document.getElementById('fps').style.display = 'block';
+      } else {
+        document.getElementById('fps').style.display = 'none';
+      }
+    }
+  }
+
+  return false; // prevent default
 }
 
 function windowResized() {
