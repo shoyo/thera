@@ -1,12 +1,12 @@
 html {
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.5);
   font-family: "Gravity-Regular", "Arial", Times, serif; }
   html .hidden {
     display: none; }
   html header {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.5);
     color: white; }
     html header .nav-menu {
       width: 25%; }
@@ -22,7 +22,7 @@ html {
           justify-content: center;
           width: 33.333%; }
           html header .nav-menu > ul > li > a {
-            color: white;
+            color: #101010;
             width: 100%;
             transition: 0.3s;
             text-align: center;
@@ -35,7 +35,7 @@ html {
     outline: none;
     resize: none; }
   html .top {
-    background-color: black; }
+    background-color: rgba(255, 255, 255, 0.5); }
     html .top .landing {
       position: absolute;
       top: 0;
@@ -65,7 +65,7 @@ html {
             display: flex;
             justify-content: center; }
             html .top .main-input > form .box .feeling-input {
-              background-color: black;
+              background-color: rgba(255, 255, 255, 0.5);
               border: white 1px solid;
               color: white;
               width: 100%;
@@ -80,18 +80,22 @@ html {
               margin: 0 auto;
               width: auto;
               border-radius: 10px;
-              background-color: black;
+              background-color: rgba(255, 255, 255, 0.5);
               padding: 0 10px;
               color: white;
               border: white 1px solid;
               transition: 0.3s; }
               html .top .main-input > form .btn .submit:hover {
-                background-color: white;
-                color: black;
+                background-color: rgba(255, 255, 255, 0.6);
+                color: white;
                 transition: 0.3s; }
     html .top #about {
       top: 100%;
-      position: absolute; }
+      position: absolute;
+      width: 100%; }
+      html .top #about .text-box p {
+        text-overflow: ellipsis;
+        overflow-wrap: break-word; }
   html .dash .banner {
     width: 100%;
     height: 200px;
@@ -106,7 +110,7 @@ html {
       text-align: center;
       display: table-cell; }
   html .dash .content {
-    background-color: black; }
+    background-color: rgba(255, 255, 255, 0.5); }
     html .dash .content .recommendations {
       width: 1000px;
       margin: 0 auto; }
@@ -131,3 +135,5 @@ html {
           width: calc(20% + 30px);
           display: flex;
           justify-content: center; }
+
+/*# sourceMappingURL=styles.css.map */

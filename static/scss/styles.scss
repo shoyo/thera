@@ -25,7 +25,7 @@ html{
 					justify-content: center;
 					width: 33.333%;
 					>a{
-						color: $forte;
+						color: $navtxt;
 						width: 100%;
 						transition: 0.3s;
 						text-align: center;
@@ -41,16 +41,16 @@ html{
 		}
 	}
 	textarea{
-		outline: none; 
-    	resize: none; 
+		outline: none;
+    	resize: none;
 	}
 	.top{
 		background-color: $bg;
 		.landing{
 			position: absolute;
-			top: 0; 
-			right: 0; 
-			bottom: 0; 
+			top: 0;
+			right: 0;
+			bottom: 0;
 			left: 0;
 		}
 		.main{
@@ -90,7 +90,7 @@ html{
 					.btn{
 						width: 100%;
 						.submit{
-							outline: none; 
+							outline: none;
 							font-size: 1.5em;
 							margin: 0 auto;
 							width: auto;
@@ -101,8 +101,8 @@ html{
 							border: $forte 1px solid;
 							transition: 0.3s;
 							&:hover{
-								background-color: $forte;
-								color: $bg;
+								background-color: $btnhvr;
+								color: $forte;
 								transition: 0.3s;
 							}
 						}
@@ -113,6 +113,14 @@ html{
 		#about{
 			top: 100%;
 			position: absolute;
+			width: 100%;
+
+			.text-box{
+				p{
+					text-overflow: ellipsis;
+					overflow-wrap: break-word;
+				}
+			}
 		}
 	}
 	.dash{
@@ -142,7 +150,7 @@ html{
 				.quotes, .music, .articles, .movies, .books{
 					display: flex;
 					flex-wrap: wrap;
-					.title{	
+					.title{
 						width: 100%;
 						font-size: 2em;
 						margin-bottom: 20px;
