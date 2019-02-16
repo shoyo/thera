@@ -104,6 +104,7 @@ def url_encode(text):
         ret.append(new)
     return ''.join(ret)
 
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
