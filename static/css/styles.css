@@ -254,3 +254,31 @@ html {
       margin: 20px auto; }
       html .sign-up .msg > a {
         color: blue; }
+  html .help .message {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    width: 80%;
+    margin: 20px auto; }
+  html .help .doctors {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    border-radius: 20px; }
+    html .help .doctors .info-card {
+      width: calc(33.333% - 40px);
+      margin: 0 40px 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      color: #101010;
+      padding: 40px 20px; }
+      html .help .doctors .info-card .pict {
+        width: 100%;
+        text-align: center; }
+      html .help .doctors .info-card .name {
+        text-align: center; }
+      html .help .doctors .info-card .address {
+        text-align: center; }

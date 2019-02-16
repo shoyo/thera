@@ -330,4 +330,43 @@ html{
 			}
 		}
 	}
+	.help{
+		.message{
+			color: $forte;
+			font-size: 2em;
+			font-weight: bold;
+			width: 80%;
+			margin: 20px auto;
+		}
+		.doctors{
+			width: 1000px;
+			margin: 0 auto;
+			background-color: $bg;
+			display: flex;
+			flex-wrap: wrap;
+			padding: 40px;
+			border-radius: 20px;
+			.info-card{
+				width: calc(33.333% - 40px);
+				margin: 0 40px 20px;
+				background-color: $bg;
+				border-radius: 20px;
+				color: $navtxt;
+				padding: 40px 20px;
+				.pict{
+					width: 100%;
+					text-align: center;
+				}
+				.name{
+					text-align: center;
+				}
+				.skills{
+
+				}
+				.address{
+					text-align: center;
+				}
+			}
+		}
+	}
 }
