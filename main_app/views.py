@@ -11,6 +11,7 @@ from .forms import UserSignUpForm, UserSignInForm
 
 try:
     from .api_keys import RAPID_API_KEY
+
     os.environ['RAPID_API_KEY'] = RAPID_API_KEY
 except ImportError:
     pass
@@ -29,10 +30,10 @@ def dashboard(request):
 
 
 def journal(request, username):
-    if request.user.username != username:
-        return render(request, 'unavailable.html')
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+    if request.user.username != username:
+        return render(request, 'unavailable.html')
     return render(request, 'main_app/journal.html', {'journal': request.user.journal})
 
 
@@ -46,7 +47,9 @@ def redirect_view(request):
 ## === USER AUTHENTICATION ===
 
 def signup(request):
-    form = UserSignUpForm()
+    if request.method == 'POST':
+        form = UserSignUpForm(request.POST)
+
     return render(request, 'main_app/signup.html', {'form': form})
 
 
