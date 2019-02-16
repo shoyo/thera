@@ -195,6 +195,7 @@ def get_experts():
 
 def doctor(ip_address):
     """Get doctor data"""
+    doctor_info_dict = {}
     response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
         headers={
             "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
@@ -208,7 +209,6 @@ def doctor(ip_address):
     find_doc = requests.get(query)
     for pos in range(len(result['data'])):
         if result['data'][pos]['total_doctors'] == 0:
-            print('No doctor')
             pass
         else:
             name =result['data'][pos]['doctors'][0]['profile']['first_name'] + result['data'][pos]['doctors'][0]['profile']['last_name']
@@ -216,8 +216,10 @@ def doctor(ip_address):
             specialty = result['data'][pos]['doctors'][0]['specialties'][0]['description']
             city = result['data'][pos]['visit_address']['city']
             state = result['data'][pos]['visit_address']['state']
+            doctor_info_dict[name] = []
+            doctor_info_dict[name].extend((url_img,specialty,city,state))
             #print(name,url_img,specialty,state,'-',city)
-    return 1
+    return doctor_info_dict
 
 
 
