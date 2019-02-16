@@ -96,6 +96,7 @@ html{
 						.feeling-input{
 							background-color: $bg;
 							border: $forte 1px solid;
+							font-size: 1em;
 							color: $navtxt;
 							width: 100%;
 							height: 20em;
@@ -178,13 +179,13 @@ html{
 						width: 100%;
 						font-size: 2em;
 						margin-bottom: 20px;
-						color: $forte;
+						color: $dash;
 					}
 					.card{
 						background-color: $bg2;
 						width: 75%;
 						margin: 0 auto;
-						color: $forte;
+						color: $dash;
 						margin-bottom: 10px;
 					}
 					.album{

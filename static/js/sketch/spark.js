@@ -1,10 +1,13 @@
-function Spark(x,y,s,l,v,t,spk){
+function Spark(x,y,s,l,v,t,spkMin,spkMax){
   this.pos = createVector(x,y);
   this.size = s;
   this.len = l
   this.vel = v;
   this.t = t;
-  this.numOfSparks = spk;
+  this.numOfSparks = spkMin;
+  this.minSparks = spkMin;
+  this.maxSparks = spkMax;
+  this.avSparks = floor((this.minSparks+this.maxSparks)/2);
   this.alpha = 0;
 }
 
@@ -19,10 +22,10 @@ Spark.prototype.light = function() {
   strokeWeight(2);
 
   this.alpha = (this.size-this.vel*this.t)/this.size;
-  c = color('rgba(255, 255, 255, '+this.alpha+')');
+  var c = color('rgba(255, 255, 255, '+this.alpha+')');
   stroke(c);
-  for (n = 0; n<this.numOfSparks; n++){
-    r=this.vel*this.t;
+  for (var n = 0; n<this.numOfSparks; n++){
+    var r=this.vel*this.t;
     this.jump(r,n*TWO_PI/this.numOfSparks);
   }
 
@@ -45,8 +48,8 @@ Spark.prototype.reset = function() {
   this.size = random(100,200);
   this.t = 0;
   if(this.size<150){
-    this.numOfSparks = random(3,4);
+    this.numOfSparks = random(this.minSparks,this.avSparks);
   }else{
-    this.numOfSparks = random(5,6);
+    this.numOfSparks = random(this.avSparks,this.maxSparks);
   }
 };

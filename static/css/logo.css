@@ -6,7 +6,8 @@
   margin: 12px;
   /* background-color: red; */
   background-image:
-                    url('../img/logo/TheraLogoTypeCrop.png')
+                    /* url('../img/logo/TheraLogoTypeCrop.png'); */
+                    url('../img/logo/TheraLogoTypeCropRedBlue.png');
                     /* url('../img/logo/TheraLogoTypeCropGrey.png') */
                     /* , */
                     /* url('../img/logo/TheraLogoTypeCropRed.png') */

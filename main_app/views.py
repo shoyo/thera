@@ -3,6 +3,7 @@ import random
 import datetime
 import requests
 import spotipy
+import praw
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
@@ -12,7 +13,7 @@ from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
 from .models import User
-from .local_spotify_credentials import credentials
+from .local_api_credentials import spotify_credentials,reddit_credentials, doctor_credentials
 
 try:
     from .api_keys import RAPID_API_KEY
@@ -147,7 +148,7 @@ def get_music_url_and_image(emotion):
     """
     ret = []
     ret_count = 4
-    username, client_id, client_secret = credentials
+    username, client_id, client_secret = spotify_credentials
     manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     spotify = spotipy.Spotify(client_credentials_manager=manager)
     response = spotify.search(q=emotion, limit=ret_count, type='playlist')
@@ -157,6 +158,59 @@ def get_music_url_and_image(emotion):
         title = response['playlists']['items'][i]['name']
         ret.append((url, image, title))
     return ret
+
+
+def get_reddit_url(emotion):
+    """Get reddit discussion url"""
+
+    client_id,client_secret,user_agent = reddit_credentials
+    reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
+
+    list_subreddit = ['mademesmile','selfimprovement','GetMotivated']
+    choose_random_subreddit = random.choice(list_subreddit)
+    for submission in reddit.subreddit(rand_subreddit).hot(limit=4):
+        post_id = submission.id
+        post_title = submission.title
+        store = []
+        for chara in post_title:
+            if chara == ' ' :
+                store.append('_')
+            else:
+                store.append(chara)
+        post_title = ''.join(store)
+        post_title = post_title.replace('[','')
+        post_title = post_title.replace(']','')
+        post_title = post_title.lower()
+        url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
+    return 1
+
+def doctor(ip_address):
+    """Get doctor data"""
+    response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
+        headers={
+            "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
+        }
+    )
+    doctor_api_key = doctor_credentials
+    location = response.json()
+    latitude = float(location['ip']['latitude'])
+    longitude = float(location['ip']['longitude'])
+    query = 'https://api.betterdoctor.com/2016-03-01/practices?'+loc+'%2C100&user_location='+str(latitude)+'%2C'+str(longitude)+'&skip=0&limit=3&user_key='+api_key
+    find_doc = requests.get(query)
+    for pos in range(len(result['data'])):
+        if result['data'][pos]['total_doctors'] == 0:
+            print('No doctor')
+            pass
+        else:
+            name =result['data'][pos]['doctors'][0]['profile']['first_name'] + result['data'][pos]['doctors'][0]['profile']['last_name']
+            url_img = result['data'][pos]['doctors'][0]['profile']['image_url']
+            specialty = result['data'][pos]['doctors'][0]['specialties'][0]['description']
+            city = result['data'][pos]['visit_address']['city']
+            state = result['data'][pos]['visit_address']['state']
+            #print(name,url_img,specialty,state,'-',city)
+    return 1
+
+
 
 
 ## General helper functions (used in every API call)
