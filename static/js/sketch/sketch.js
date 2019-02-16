@@ -40,45 +40,45 @@ function draw(){
   }
 }
 
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    if (animation) {
-      animation = false;
-    } else {
-      animation = true;
-    }
-  }
-
-  if (keyCode === DOWN_ARROW) {
-    if (animation) {
-      if(document.getElementById('fps').style.display === 'none'){
-        document.getElementById('fps').style.display = 'block';
-      } else {
-        document.getElementById('fps').style.display = 'none';
-      }
-    }
-  }
-
-  if (keyCode === RIGHT_ARROW) {
-    if (moods.indexOf(mood)==mood.length-1) {
-      mood = moods[0];
-    } else {
-      mood = moods[moods.indexOf(mood)+1];
-    }
-    console.log(moods,moods.indexOf(mood),mood);
-    // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
-  }
-
-  if (keyCode === LEFT_ARROW) {
-    if (moods.indexOf(mood)==0) {
-      mood = moods[moods.length-1];
-    } else {
-      mood = moods[moods.indexOf(mood)-1];
-    }
-    console.log(moods,moods.indexOf(mood),mood);
-    // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
-  }
-}
+// function keyPressed() {
+//   if (keyCode === UP_ARROW) {
+//     if (animation) {
+//       animation = false;
+//     } else {
+//       animation = true;
+//     }
+//   }
+//
+//   if (keyCode === DOWN_ARROW) {
+//     if (animation) {
+//       if(document.getElementById('fps').style.display === 'none'){
+//         document.getElementById('fps').style.display = 'block';
+//       } else {
+//         document.getElementById('fps').style.display = 'none';
+//       }
+//     }
+//   }
+//
+//   if (keyCode === RIGHT_ARROW) {
+//     if (moods.indexOf(mood)==mood.length-1) {
+//       mood = moods[0];
+//     } else {
+//       mood = moods[moods.indexOf(mood)+1];
+//     }
+//     console.log(moods,moods.indexOf(mood),mood);
+//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
+//   }
+//
+//   if (keyCode === LEFT_ARROW) {
+//     if (moods.indexOf(mood)==0) {
+//       mood = moods[moods.length-1];
+//     } else {
+//       mood = moods[moods.indexOf(mood)-1];
+//     }
+//     console.log(moods,moods.indexOf(mood),mood);
+//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
+//   }
+// }
 
 function windowResized() {
   updateWindowSize()
