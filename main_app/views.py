@@ -33,12 +33,13 @@ def index(request):
 
 def dashboard(request):
     text = request.GET['input']
+    polarity = get_polarity(text)
     emotion = "happy"
     # emotion = get_emotion(text)
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
-    ret = {'quote': quote, 'music': music}
+    ret = {'quote': quote, 'music': music, 'polarity': polarity}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
@@ -137,6 +138,17 @@ api_urls = {
 
 
 ## Specific helper functions (used to obtain specific data)
+
+def get_polarity(text):
+    """Return the polarity (1 for positive, -1 for negative, 0 for neutral) of the given text."""
+    json_response = get_api_response(api_urls['sentiment'], text)
+    polarity = json_response['polarity']
+    if polarity == 'positive':
+        return 1
+    elif polarity == 'negative':
+        return -1
+    else:
+        return 0
 
 def get_emotion(text):
     """Return the emotion with the highest probability for the given text."""
