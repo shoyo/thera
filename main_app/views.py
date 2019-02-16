@@ -1,9 +1,12 @@
 import os
 import random
-
 import requests
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+
 from .forms import UserSignUpForm, UserSignInForm
 
 try:
@@ -13,17 +16,32 @@ except ImportError:
     pass
 
 
-# ==== VIEWS =====
+# ==== GENERAL VIEWS =====
 
 def index(request):
     return render(request, 'main_app/index.html')
 
 
+def dashboard(request):
+    text = request.GET['input']
+    ret = text
+    return render(request, 'main_app/dashboard.html', {'ret': ret})
+
+
+def journal(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+    return render(request, 'main_app/journal.html', {'journal': request.user.journal})
+
+
 def redirect_view(request):
-    response = redirect('https://www.reddit.com/api/v1/authorize?client_id=QYastqo-s6Y6ZA&response_type=code&state=test&redirect_uri=https://thera-health.herokuapp.com/redirect/&duration=temporary&scope=read')
+    response = redirect(
+        'https://www.reddit.com/api/v1/authorize?client_id=QYastqo-s6Y6ZA&response_type=code&state=test&redirect_uri=https://thera-health.herokuapp.com/redirect/&duration=temporary&scope=read')
     testpost = requests.post("https://www.reddit.com/api/v1/access_token")
     return response
 
+
+## === USER AUTHENTICATION ===
 
 def signup(request):
     form = UserSignUpForm()
@@ -35,14 +53,23 @@ def signin(request):
     return render(request, 'main_app/signin.html', {'form': form})
 
 
-def dashboard(request):
-    text = request.GET['input']
-    ret = text
-    return render(request, 'main_app/dashboard.html', {'ret': ret})
+def signin_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'main_app/dashboard.html', user)
+    else:
+        return render(request, 'main_app/signin.html')
 
 
-def journal(request):
-    return HttpResponse("this is the journal page.")
+def signout_view(request):
+    logout(request)
+    return render(request, 'main_app/index.html')
+
+
+## ===========================
 
 
 # ==========
@@ -54,6 +81,7 @@ api_urls = {
     'article': 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?autoCorrect=true&pageNumber=1&pageSize=2&',
     'quote': 'https://theysaidso.p.rapidapi.com/quote?category=',
 }
+
 
 ## Specific helper functions (used to obtain specific data)
 
@@ -74,6 +102,7 @@ def get_article_url(emotion):
     """Return an article url associated with given emotion."""
     json_response = get_api_response(api_urls['article'], emotion)
     return json_response['value']
+
 
 def get_quote_and_author(category):
     """Return tuple of a quote associated with given categoryand its author."""

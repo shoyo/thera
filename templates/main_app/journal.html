@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Journals{% endblock %}
+
+{% block content %}
+<h2>My Journal</h2>
+{% for date, entry in journal.items %}
+<tr>
+    <td><i>{{ date }}</i></td>
+    <td><b>{{ entry }}</b></td>
+</tr>
+{% endfor %}
+{% endblock %}

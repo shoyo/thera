@@ -4,7 +4,7 @@
 {% block page_title %}Sign in{% endblock %}
 
 {% block content %}
-<form method="POST" class="post-form">
+<form action='{% url "signin_attempt" %}' method="POST" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="save btn btn-default">Sign in</button>
