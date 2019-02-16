@@ -28,7 +28,9 @@ def dashboard(request):
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
-def journal(request):
+def journal(request, username):
+    if request.user.username != username:
+        return render(request, 'unavailable.html')
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     return render(request, 'main_app/journal.html', {'journal': request.user.journal})
