@@ -3,11 +3,29 @@ html {
   font-family: "Gravity-Regular", "Arial", Times, serif; }
   html .hidden {
     display: none; }
+  html .btn {
+    width: 100%; }
+    html .btn .submit {
+      outline: none;
+      font-size: 1em;
+      margin: 0 auto;
+      width: auto;
+      border-radius: 10px;
+      background-color: black;
+      padding: 0 10px;
+      color: white;
+      border: white 1px solid;
+      transition: 0.3s; }
+      html .btn .submit:hover {
+        background-color: white;
+        color: black;
+        transition: 0.3s; }
   html header {
     display: flex;
     justify-content: space-between;
     background-color: black;
-    color: white; }
+    color: white;
+    height: 100px; }
     html header .nav-menu {
       width: 25%; }
       html header .nav-menu > ul {
@@ -31,12 +49,13 @@ html {
               text-decoration: none;
               background-color: rgba(255, 255, 255, 0.4);
               transition: 0.3s; }
-  html textarea {
+  html textarea, html input {
     outline: none;
     resize: none; }
   html .top {
     background-color: black; }
     html .top .landing {
+<<<<<<< HEAD
       position: absolute;
       top: 0;
       right: 0;
@@ -45,6 +64,12 @@ html {
     html .top .main {
       top: 50%;
       transform: translateY(-50%);
+=======
+      height: calc(100vh - 100px); }
+    html .top .main {
+      top: 50%;
+      transform: translateY(-60%);
+>>>>>>> tigga-frontend
       position: relative; }
       html .top .main-message {
         display: flex;
@@ -72,6 +97,7 @@ html {
               height: 20em;
               border-radius: 10px;
               margin: 0 auto 20px; }
+<<<<<<< HEAD
           html .top .main-input > form .btn {
             width: 100%; }
             html .top .main-input > form .btn .submit {
@@ -92,6 +118,19 @@ html {
     html .top #about {
       top: 100%;
       position: absolute; }
+=======
+    html .top #about {
+      color: black;
+      background-color: white;
+      overflow: auto; }
+      html .top #about .content {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 40px 0 40px; }
+        html .top #about .content .title {
+          font-size: 2em;
+          font-weight: bold; }
+>>>>>>> tigga-frontend
   html .dash .banner {
     width: 100%;
     height: 200px;
@@ -131,3 +170,35 @@ html {
           width: calc(20% + 30px);
           display: flex;
           justify-content: center; }
+<<<<<<< HEAD
+=======
+  html .sign-in {
+    height: calc(100vh - 100px);
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    html .sign-in .title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px; }
+    html .sign-in > form {
+      background-color: black;
+      color: white;
+      text-align: center;
+      width: 400px;
+      margin: 0 auto; }
+      html .sign-in > form > p > label, html .sign-in > form > p > input {
+        width: 100%; }
+      html .sign-in > form > p > input {
+        background-color: black;
+        border: white 1px solid;
+        color: white;
+        border-radius: 20px; }
+    html .sign-in .msg {
+      margin: 20px auto; }
+      html .sign-in .msg > a {
+        color: blue; }
+>>>>>>> tigga-frontend
