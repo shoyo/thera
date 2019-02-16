@@ -7,7 +7,7 @@ import praw
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
@@ -41,11 +41,15 @@ def dashboard(request):
 
 
 def journal(request, username):
+    try:
+        user = User.objects.get(pk=username)
+    except User.DoesNotExist:
+        raise Http404("User does not exist.")
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
-    if request.user.username != username:
+    if request.user.username != user.username:
         return render(request, 'unavailable.html')
-    return render(request, 'main_app/journal.html', {'journal': request.user.journal})
+    return render(request, 'main_app/journal.html', {'user': user.journal})
 
 
 def redirect_view(request):
