@@ -11,6 +11,7 @@ html{
 		justify-content: space-between;
 		background-color: $bg;
 		color: $forte;
+		height: 100px;
 		.nav-menu{
 			width: 25%;
 			>ul{
@@ -46,26 +47,24 @@ html{
 	}
 	.top{
 		background-color: $bg;
+		.landing{
+			height: calc(100vh - 100px);
+		}
 		.main{
+			top: 50%;
+			transform: translateY(-60%);
+			position: relative;
 			&-message{
 				display: flex;
 				width: 100%;
 				justify-content: center;
 				align-content: center;
 				color: $forte;
-				height: 150px;
 				font-size: 50px;
+				margin-bottom: 40px;
 				p{
 					margin: auto;
 				}
-			}
-			&-date{
-				display: flex;
-				width: 100%;
-				justify-content: center;
-				align-content: center;
-				text-align: center;
-				color: white;
 			}
 			&-input{
 				display: flex;
@@ -105,6 +104,21 @@ html{
 							}
 						}
 					}
+				}
+			}
+		}
+		#about{
+			color: $bg;
+			background-color: $forte;
+			overflow: auto;
+			.content{
+				width: 1000px;
+				margin: 0 auto;
+				padding: 40px 0 40px;
+				.title{
+					font-size: 2em;
+					font-weight: bold;
+
 				}
 			}
 		}
