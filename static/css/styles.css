@@ -1,7 +1,9 @@
 html body {
   font-family: "Gravity-Regular", "Arial", Times, serif; }
+
 html .hidden {
   display: none; }
+
 html .btn {
   width: 100%; }
   html .btn .submit {
@@ -18,6 +20,7 @@ html .btn {
     html .btn .submit:hover {
       background-color: white;
       transition: 0.3s; }
+
 html header {
   display: flex;
   justify-content: space-between;
@@ -47,11 +50,14 @@ html header {
             text-decoration: none;
             background-color: rgba(255, 255, 255, 0.4);
             transition: 0.3s; }
+
 html textarea, html input {
   outline: none;
   resize: none; }
+
 html .top .landing {
   height: calc(100vh - 100px); }
+
 html .top .main {
   top: 50%;
   transform: translateY(-60%);
@@ -83,6 +89,7 @@ html .top .main {
           height: 20em;
           border-radius: 10px;
           margin: 0 auto 20px; }
+
 html .top #about {
   top: 100%;
   position: absolute;
@@ -100,6 +107,7 @@ html .top #about {
       html .top #about .content .text-box p {
         text-overflow: ellipsis;
         overflow-wrap: break-word; }
+
 html .dash .banner {
   width: 100%;
   height: 200px;
@@ -113,6 +121,7 @@ html .dash .banner {
     vertical-align: middle;
     text-align: center;
     display: table-cell; }
+
 html .dash .content {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 40px 0 80px; }
@@ -194,6 +203,7 @@ html .dash .content {
         html .dash .content .recommendations .articles .card .reddit-icon > img {
           height: 50%;
           width: 50%; }
+
 html .sign-in {
   height: calc(100vh - 100px);
   background-color: transparent;
@@ -226,6 +236,7 @@ html .sign-in {
     margin: 20px auto; }
     html .sign-in .msg > a {
       color: blue; }
+
 html .sign-up {
   background-color: transparent;
   color: white;
@@ -248,44 +259,39 @@ html .sign-up {
       border: white 1px solid;
       color: #101010;
       border-radius: 20px; }
-      html .sign-up > form > p > label, html .sign-up > form > p > input {
-        width: 100%; }
-      html .sign-up > form > p > input {
-        background-color: rgba(255, 255, 255, 0.7);
-        border: white 1px solid;
-        color: #101010;
-        border-radius: 20px; }
-      html .sign-up > form > ul {
-        display: none; }
-    html .sign-up .msg {
-      margin: 20px auto; }
-      html .sign-up .msg > a {
-        color: blue; }
-  html .help .message {
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    width: 80%;
+    html .sign-up > form > ul {
+      display: none; }
+  html .sign-up .msg {
     margin: 20px auto; }
-  html .help .doctors {
-    width: 1000px;
-    margin: 0 auto;
+    html .sign-up .msg > a {
+      color: blue; }
+
+html .help .message {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  width: 80%;
+  margin: 20px auto; }
+
+html .help .doctors {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  border-radius: 20px; }
+  html .help .doctors .info-card {
+    width: calc(33.333% - 40px);
+    margin: 0 20px 20px;
     background-color: rgba(255, 255, 255, 0.7);
-    display: flex;
-    flex-wrap: wrap;
-    padding: 40px;
-    border-radius: 20px; }
-    html .help .doctors .info-card {
-      width: calc(33.333% - 40px);
-      margin: 0 40px 20px;
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      color: #101010;
-      padding: 40px 20px; }
-      html .help .doctors .info-card .pict {
-        width: 100%;
-        text-align: center; }
-      html .help .doctors .info-card .name {
-        text-align: center; }
-      html .help .doctors .info-card .address {
-        text-align: center; }
+    border-radius: 20px;
+    color: #101010;
+    padding: 40px 20px; }
+    html .help .doctors .info-card .pict {
+      width: 100%;
+      text-align: center; }
+    html .help .doctors .info-card .name {
+      text-align: center; }
+    html .help .doctors .info-card .address {
+      text-align: center; }
