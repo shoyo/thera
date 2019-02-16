@@ -4,6 +4,7 @@ import datetime
 import requests
 import spotipy
 import praw
+from django.utils.datastructures import MultiValueDictKeyError
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
@@ -69,8 +70,9 @@ def signup(request):
                             username=form.cleaned_data['username'], password=form.cleaned_data['password'],
                             email=form.cleaned_data['email'])
             new_user.save()
-            login(request, new_user)
-            render(request, 'main_app/success.html', {'name': new_user.first_name})
+            return render(request, 'main_app/success.html', {'name': new_user.first_name})
+        else:
+            return render(request, 'main_app/unavailable.html')
     else:
         form = UserSignUpForm()
         return render(request, 'main_app/signup.html', {'form': form})
