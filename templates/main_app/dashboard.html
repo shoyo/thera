@@ -12,7 +12,7 @@
 {% block content %}
 	<div class="dash">
 		<div class="banner">
-			<h2 class="title">Welcome back, {{user.first_name}}</h2>
+			<h2 class="title">Welcome back, User</h2>
 		</div>
 		<div class="content">
 			<div class="sidebar">
@@ -24,7 +24,8 @@
 						<p>Quotes</p>
 					</div>
 					<div class="card">
-						<p class="saying">SAMPLE_QUOTE</p>
+						<p class="saying">{{ ret.quote.0 }}<br>
+						-- {{ ret.quote.1.upper }}</p>
 					</div>
 				</div>
 				<div class="music">
@@ -32,16 +33,20 @@
 						<p>Music</p>
 					</div>
 					<div class="album">
-						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+						<a href={{ ret.music.0.0 }}><img src="{{ ret.music.0.1 }}" alt="album jacket" width="150" height="150"></a>
+						<p>{{ ret.music.0.2 }}</p>
 					</div>
 					<div class="album">
-						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+						<a href={{ ret.music.1.0 }}><img src="{{ ret.music.1.1 }}" alt="album jacket" width="150" height="150"></a>
+						<p>{{ ret.music.1.2 }}</p>
 					</div>
 					<div class="album">
-						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+						<a href={{ ret.music.2.0 }}><img src="{{ ret.music.2.1 }}" alt="album jacket" width="150" height="150"></a>
+						<p>{{ ret.music.2.2 }}</p>
 					</div>
 					<div class="album">
-						<a href=""><img src="{% static 'img/sample.jpg' %}" alt="album jacket" width="150" height="150"></a>
+						<a href={{ ret.music.3.0 }}><img src="{{ ret.music.3.1 }}" alt="album jacket" width="150" height="150"></a>
+						<p>{{ ret.music.3.2 }}</p>
 					</div>
 					<!-- <div class="card">
 						<p class="title">SAMPLE_TITLE</p>

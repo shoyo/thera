@@ -1,6 +1,8 @@
 import os
 import random
 import requests
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -8,10 +10,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
+from .local_spotify_credentials import credentials
 
 try:
     from .api_keys import RAPID_API_KEY
-
     os.environ['RAPID_API_KEY'] = RAPID_API_KEY
 except ImportError:
     pass
@@ -20,12 +22,17 @@ except ImportError:
 # ==== GENERAL VIEWS =====
 
 def index(request):
-    return render(request, 'main_app/index.html')
+    datetime =
+    return render(request, 'main_app/index.html', datetime)
 
 
 def dashboard(request):
     text = request.GET['input']
-    ret = text
+    emotion = get_emotion(text)
+    # synonym = get_synonym(emotion)
+    quote = ("This is demo quote.", "Demo Author")
+    music = get_music_url_and_image(emotion)
+    ret = {'quote': quote, 'music': music}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
@@ -114,6 +121,29 @@ def get_quote_and_author(category):
     """Return tuple of a quote associated with given categoryand its author."""
     json_response = get_api_response(api_urls['quote'], category)
     return json_response['contents']['quote'], json_response['contents']['author']
+
+
+def get_music_url_and_image(emotion):
+    """Return Spotify playlist data for a given emotion.
+
+    Response format example (when ret_count = 4):
+    [(playlist_1_url, playlist_1_img, playlist_1_title),
+    (playlist_2_url, playlist_2_img, playlist_2_title),
+    (playlist_3_url, playlist_3_img, playlist_3_title),
+    (playlist_4_url, playlist_4_img, playlist_4_title)]
+    """
+    ret = []
+    ret_count = 4
+    username, client_id, client_secret = credentials
+    manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+    spotify = spotipy.Spotify(client_credentials_manager=manager)
+    response = spotify.search(q=emotion, limit=ret_count, type='playlist')
+    for i in range(ret_count):
+        url = response['playlists']['items'][i]['external_urls']['spotify']
+        image = response['playlists']['items'][i]['images'][0]['url']
+        title = response['playlists']['items'][i]['name']
+        ret.append((url, image, title))
+    return ret
 
 
 ## General helper functions (used in every API call)
