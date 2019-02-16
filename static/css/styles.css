@@ -163,3 +163,5 @@ html {
         border-radius: 20px; }
     html .sign-in .msg {
       margin: 20px auto; }
+      html .sign-in .msg > a {
+        color: blue; }

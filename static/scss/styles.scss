@@ -206,6 +206,9 @@ html{
 		}
 		.msg{
 			margin: 20px auto;
+			>a{
+				color: $link;
+			}
 		}
 	}
 }
