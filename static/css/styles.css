@@ -148,7 +148,10 @@ html {
             font-size: 0.8em;
             width: 80%;
             margin: 0 auto;
-            text-align: center; }
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
   html .sign-in {
     height: calc(100vh - 100px);
     background-color: transparent;
