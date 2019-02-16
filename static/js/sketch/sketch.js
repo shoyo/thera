@@ -5,7 +5,9 @@ var height;
 
 var r = 0;
 var cl = 0;
-var mood = 'land';
+
+var moods = ['land','happiness', 'sadness'];
+var mood = moods[0];
 
 var ripples = [];
 var sparks = [];
@@ -15,23 +17,7 @@ var flowField;
 function setup() {
   updateWindowSize();
   var myCanvas = createCanvas(width, height);
-  myCanvas.class('backgroundsketch '+mood);
-  // document.getElementById(defaultCanvas0).classList.add('happiness');
-
-  // document.getElementById('name').innerHTML = mood.charAt(0).toUpperCase() + mood.slice(1);
-    switch(mood){
-      case 'land' :
-        landingSet();
-        break;
-
-      case 'happiness' :
-        happySet();
-        break;
-
-      case 'sadness' :
-        sadSet();
-        break;
-    }
+  setMoodAnimation(myCanvas,mood);
 }
 
 function draw(){
@@ -54,27 +40,45 @@ function draw(){
   }
 }
 
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    if (animation) {
-      animation = false;
-    } else {
-      animation = true;
-    }
-  }
-
-  if (keyCode === DOWN_ARROW) {
-    if (animation) {
-      if(document.getElementById('fps').style.display === 'none'){
-        document.getElementById('fps').style.display = 'block';
-      } else {
-        document.getElementById('fps').style.display = 'none';
-      }
-    }
-  }
-
-  return false; // prevent default
-}
+// function keyPressed() {
+//   if (keyCode === UP_ARROW) {
+//     if (animation) {
+//       animation = false;
+//     } else {
+//       animation = true;
+//     }
+//   }
+//
+//   if (keyCode === DOWN_ARROW) {
+//     if (animation) {
+//       if(document.getElementById('fps').style.display === 'none'){
+//         document.getElementById('fps').style.display = 'block';
+//       } else {
+//         document.getElementById('fps').style.display = 'none';
+//       }
+//     }
+//   }
+//
+//   if (keyCode === RIGHT_ARROW) {
+//     if (moods.indexOf(mood)==mood.length-1) {
+//       mood = moods[0];
+//     } else {
+//       mood = moods[moods.indexOf(mood)+1];
+//     }
+//     console.log(moods,moods.indexOf(mood),mood);
+//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
+//   }
+//
+//   if (keyCode === LEFT_ARROW) {
+//     if (moods.indexOf(mood)==0) {
+//       mood = moods[moods.length-1];
+//     } else {
+//       mood = moods[moods.indexOf(mood)-1];
+//     }
+//     console.log(moods,moods.indexOf(mood),mood);
+//     // setMoodAnimation(document.getElementById('defaultCanvas0'), mood);
+//   }
+// }
 
 function windowResized() {
   updateWindowSize()
@@ -95,4 +99,22 @@ function updateWindowSize(){
     document.body.offsetHeight, document.documentElement.offsetHeight,
     document.body.clientHeight, document.documentElement.clientHeight
   );
+}
+
+function setMoodAnimation(canvas,mood){
+  console.log(canvas);
+  canvas.class('backgroundsketch '+mood);
+    switch(mood){
+      case 'land' :
+        landingSet();
+        break;
+
+      case 'happiness' :
+        happySet();
+        break;
+
+      case 'sadness' :
+        sadSet();
+        break;
+    }
 }

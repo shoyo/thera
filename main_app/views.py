@@ -188,6 +188,10 @@ def get_reddit_url(emotion):
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
     return 1
 
+
+def get_experts():
+    pass
+
 def doctor(ip_address):
     """Get doctor data"""
     response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
