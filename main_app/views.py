@@ -42,7 +42,7 @@ def dashboard(request):
     reddit_info = get_reddit_url()
     getting_help(request)
     ret = {'quote': quote, 'music': music, 'polarity': polarity,'reddit':reddit_info}
-    return HttpResponse(ret['doc_info'])#render(request, 'main_app/dashboard.html', {'ret': ret})
+    return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
 def journal_index(request):
