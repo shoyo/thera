@@ -2,7 +2,9 @@
 
 html{
 	// background-color: $bg;
-	font-family: "Gravity-Regular", "Arial", Times, serif;
+	body{
+		font-family: "Gravity-Regular", "Arial", Times, serif;
+	}
 	.hidden{
 		display: none;
 	}

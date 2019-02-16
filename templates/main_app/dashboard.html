@@ -7,8 +7,10 @@
 	$(document).ready(function(){
     	$('.hidden').fadeIn('slow').removeClass('hidden');
 	});
-	mood = moods[{{ polarity }}+0];
-	console.log(mood);
+
+	mood = moods[{{ ret.polarity }}+1];
+	console.log(mood,{{ ret.polarity }});
+
 {% endblock %}
 
 {% block content %}

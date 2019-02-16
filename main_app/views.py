@@ -39,6 +39,7 @@ def dashboard(request):
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
+    reddit_info = get_reddit_url()
     ret = {'quote': quote, 'music': music, 'polarity': polarity,'reddit':reddit_info}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
