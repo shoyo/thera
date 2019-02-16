@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Sign in{% endblock %}
+
+{% block content %}
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Sign in</button>
+</form>
+<h5>Don't have an account? Sign up <a href="{% url 'signup' %}">here</a>.</h5>
+{% endblock %}

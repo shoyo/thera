@@ -4,7 +4,7 @@ import random
 import requests
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import UserSignUpForm
+from .forms import UserSignUpForm, UserSignInForm
 
 try:
     from .api_keys import RAPID_API_KEY
@@ -28,6 +28,11 @@ def redirect_view(request):
 def signup(request):
     form = UserSignUpForm()
     return render(request, 'main_app/signup.html', {'form': form})
+
+
+def signin(request):
+    form = UserSignInForm()
+    return render(request, 'main_app/signin.html', {'form': form})
 
 
 def dashboard(request):
