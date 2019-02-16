@@ -111,23 +111,24 @@ html{
 			top: 100%;
 			position: absolute;
 			width: 100%;
-
-			.text-box{
-				p{
-					text-overflow: ellipsis;
-					overflow-wrap: break-word;
-				}
-				// color: $bg;
-				// background-color: $forte;
-				overflow: auto;
-				.content{
-					width: 1000px;
-					margin: 0 auto;
-					padding: 40px 0 40px;
-					.title{
+			.content{
+				width: 1000px;
+				margin: 0 auto;
+				padding: 40px 0 40px;
+				.title{
+					>p{
 						font-size: 2em;
 						font-weight: bold;
 					}
+				}
+				.text-box{
+					p{
+						text-overflow: ellipsis;
+						overflow-wrap: break-word;
+					}
+					// color: $bg;
+					// background-color: $forte;
+					overflow: auto;
 				}
 			}
 		}
