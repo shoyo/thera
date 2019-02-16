@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.1/topics/i18n/
+# https://docs.djangop2roject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -133,3 +133,7 @@ STATICFILES_DIRS = [
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Login config
+LOGIN_URL = '/signin/'
+LOGIN_REDIRECT_URL = '/'
