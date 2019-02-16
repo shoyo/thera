@@ -42,6 +42,14 @@ def dashboard(request):
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
 
+def journal_index(request):
+    if request.user.is_authenticated:
+        journals = JournalEntry.objects.filter(author=request.user)
+        return render(request, 'main_app/journal.html', {'journals': journals})
+    else:
+        return render(request, 'main_app/signin.html')
+
+
 def journal(request, username):
     try:
         user = User.objects.get(pk=username)
@@ -52,7 +60,7 @@ def journal(request, username):
     if request.user.username != user.username:
         return render(request, 'unavailable.html')
 
-    journals = JournalEntry.objects.filter(username=username)
+    journals = JournalEntry.objects.filter(author=user)
     return render(request, 'main_app/journal.html', {'journals': journals})
 
 
@@ -80,8 +88,19 @@ def signup(request):
 
 
 def signin(request):
-    form = UserSignInForm()
-    return render(request, 'main_app/signin.html', {'form': form})
+    if request.method == 'POST':
+        form = UserSignInForm(request.POST)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            journals = JournalEntry.objects.filter(username=username)
+            return render(request, 'main_app/' + username + '/journal', {'journals': journals})
+        else:
+            return render(request, 'main_app/unavailable.html')
+    else:
+        return render(request, 'main_app/signin.html')
+
 
 
 def signin_view(request):
