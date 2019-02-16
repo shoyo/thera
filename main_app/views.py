@@ -47,10 +47,11 @@ def redirect_view(request):
 ## === USER AUTHENTICATION ===
 
 def signup(request):
+    form = UserSignUpForm(request.POST)
     if request.method == 'POST':
-        form = UserSignUpForm(request.POST)
-
-    return render(request, 'main_app/signup.html', {'form': form})
+        pass
+    else:
+        return render(request, 'main_app/signup.html', {'form': form})
 
 
 def signin(request):
