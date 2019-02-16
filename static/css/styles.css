@@ -23,8 +23,7 @@ html {
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.7);
     color: white;
-    height: 80px;
-    margin-bottom: 40px; }
+    height: 80px; }
     html header .nav-menu {
       width: 25%; }
       html header .nav-menu > ul {
@@ -183,7 +182,7 @@ html {
       color: #101010;
       text-align: center;
       width: 400px;
-      margin: 0 auto;
+      margin: 40px auto;
       padding: 20px;
       border-radius: 20px; }
       html .sign-up > form > p > label, html .sign-up > form > p > input {
