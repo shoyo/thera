@@ -9,7 +9,6 @@ class User(models.Model):
     email = models.EmailField()
 
 
-
 class JournalEntry(models.Model):
     text = models.TextField(max_length=1000)
     datetime = models.DateTimeField(auto_now_add=True)

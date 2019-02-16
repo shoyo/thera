@@ -4,6 +4,7 @@ import datetime
 import requests
 import spotipy
 import praw
+from django.utils.datastructures import MultiValueDictKeyError
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
@@ -12,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
-from .models import User
+from .models import User, JournalEntry
 from .local_api_credentials import spotify_credentials,reddit_credentials, doctor_credentials
 
 try:
@@ -32,7 +33,8 @@ def index(request):
 
 def dashboard(request):
     text = request.GET['input']
-    emotion = get_emotion(text)
+    emotion = "happy"
+    # emotion = get_emotion(text)
     # synonym = get_synonym(emotion)
     quote = ("This is demo quote.", "Demo Author")
     music = get_music_url_and_image(emotion)
@@ -49,14 +51,14 @@ def journal(request, username):
         return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     if request.user.username != user.username:
         return render(request, 'unavailable.html')
-    return render(request, 'main_app/journal.html', {'user': user.journal})
+
+    journals = JournalEntry.objects.filter(username=username)
+    return render(request, 'main_app/journal.html', {'journals': journals})
 
 
-def redirect_view(request):
-    response = redirect(
-        'https://www.reddit.com/api/v1/authorize?client_id=QYastqo-s6Y6ZA&response_type=code&state=test&redirect_uri=https://thera-health.herokuapp.com/redirect/&duration=temporary&scope=read')
-    testpost = requests.post("https://www.reddit.com/api/v1/access_token")
-    return response
+def getting_help(request):
+    experts = get_experts()
+    return render(request, 'getting_help.html', {'experts': experts})
 
 
 ## === USER AUTHENTICATION ===
@@ -69,8 +71,9 @@ def signup(request):
                             username=form.cleaned_data['username'], password=form.cleaned_data['password'],
                             email=form.cleaned_data['email'])
             new_user.save()
-            login(request, new_user)
-            render(request, 'main_app/success.html', {'name': new_user.first_name})
+            return render(request, 'main_app/success.html', {'name': new_user.first_name})
+        else:
+            return render(request, 'main_app/unavailable.html')
     else:
         form = UserSignUpForm()
         return render(request, 'main_app/signup.html', {'form': form})
@@ -166,7 +169,7 @@ def get_music_url_and_image(emotion):
 
 def get_reddit_url(emotion):
     """Get reddit discussion url"""
-
+    store_link = [] #stores 4 subreddit link
     client_id,client_secret,user_agent = reddit_credentials
     reddit = praw.Reddit(client_id = client_id,client_secret = client_secret,user_agent = user_agent)
 
@@ -186,10 +189,16 @@ def get_reddit_url(emotion):
         post_title = post_title.replace(']','')
         post_title = post_title.lower()
         url = 'https://reddit.com/r/' + rand_subreddit + '/comments/' + post_id + '/' + post_title
-    return 1
+        store_link.append(url)
+    return store_link
+
+
+def get_experts():
+    pass
 
 def doctor(ip_address):
     """Get doctor data"""
+    doctor_info_dict = {}
     response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
         headers={
             "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
@@ -203,7 +212,6 @@ def doctor(ip_address):
     find_doc = requests.get(query)
     for pos in range(len(result['data'])):
         if result['data'][pos]['total_doctors'] == 0:
-            print('No doctor')
             pass
         else:
             name =result['data'][pos]['doctors'][0]['profile']['first_name'] + result['data'][pos]['doctors'][0]['profile']['last_name']
@@ -211,8 +219,10 @@ def doctor(ip_address):
             specialty = result['data'][pos]['doctors'][0]['specialties'][0]['description']
             city = result['data'][pos]['visit_address']['city']
             state = result['data'][pos]['visit_address']['state']
+            doctor_info_dict[name] = []
+            doctor_info_dict[name].extend((url_img,specialty,city,state))
             #print(name,url_img,specialty,state,'-',city)
-    return 1
+    return doctor_info_dict
 
 
 
