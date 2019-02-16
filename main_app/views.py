@@ -12,13 +12,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
-<<<<<<< HEAD
 from .models import User
 from .local_api_credentials import spotify_credentials,reddit_credentials
-=======
-from .models import User
-from .local_api_credentials import spotify_credentials,reddit_credentials
->>>>>>> 3f813df1aa7f211f479217541a62079172d94658
 
 try:
     from .api_keys import RAPID_API_KEY
