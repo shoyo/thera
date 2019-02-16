@@ -144,7 +144,6 @@ html {
           width: 90%;
           margin: 0 auto;
           color: #707070;
-          background-color: rgba(255, 255, 255, 0.7);
           margin-bottom: 10px;
           border: none;
           display: flex;
@@ -173,17 +172,25 @@ html {
           html .dash .content .recommendations .music .album:hover, html .dash .content .recommendations .articles .album:hover, html .dash .content .recommendations .movies .album:hover, html .dash .content .recommendations .books .album:hover {
             transform: scale(1.1);
             transition: 0.3s; }
-      html .dash .content .recommendations .articles .card .detail {
-        width: 90%;
-        padding: 0 20px; }
-      html .dash .content .recommendations .articles .card .reddit-icon {
-        width: 10%;
-        display: flex;
-        justify-content: center;
-        margin: auto; }
-        html .dash .content .recommendations .articles .card .reddit-icon > img {
-          height: 50%;
-          width: 50%; }
+      html .dash .content .recommendations .articles .card {
+        background-color: transparent; }
+        html .dash .content .recommendations .articles .card .detail {
+          width: 90%;
+          padding: 0 20px;
+          margin: auto 0; }
+          html .dash .content .recommendations .articles .card .detail .title {
+            font-size: 1.5em;
+            margin: 0; }
+          html .dash .content .recommendations .articles .card .detail .link {
+            margin: 0; }
+        html .dash .content .recommendations .articles .card .reddit-icon {
+          width: 10%;
+          display: flex;
+          justify-content: center;
+          margin: auto; }
+          html .dash .content .recommendations .articles .card .reddit-icon > img {
+            height: 50%;
+            width: 50%; }
   html .sign-in {
     height: calc(100vh - 100px);
     background-color: transparent;
@@ -244,5 +251,3 @@ html {
       margin: 20px auto; }
       html .sign-up .msg > a {
         color: blue; }
-
-/*# sourceMappingURL=styles.css.map */

@@ -185,7 +185,6 @@ html{
 						width: 90%;
 						margin: 0 auto;
 						color: $dash;
-						background-color: $bg;
 						margin-bottom: 10px;
 						border: none;
 						display: flex;
@@ -222,9 +221,18 @@ html{
 				}
 				.articles{
 					.card{
+						background-color: transparent;
 						.detail{
 							width: 90%;
 							padding: 0 20px;
+							margin: auto 0;
+							.title{
+								font-size: 1.5em;
+								margin: 0;
+							}
+							.link{
+								margin: 0;
+							}
 						}
 						.reddit-icon{
 							width: 10%;
