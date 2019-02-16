@@ -194,6 +194,7 @@ html{
 						display: flex;
 						justify-content: center;
 						flex-wrap: wrap;
+						transition: 0.3s;
 						>a{
 							width: 100%;
 							display: flex;
@@ -208,6 +209,10 @@ html{
 							text-overflow: ellipsis;
 							overflow: hidden;
 							white-space: nowrap;
+						}
+						&:hover{
+							transform: scale(1.1);
+							transition: 0.3s;
 						}
 					}
 				}
