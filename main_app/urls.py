@@ -10,5 +10,5 @@ urlpatterns = [
     path('<str:username>/journal', views.journal, name='journal'),
     path('signup/', views.signup, name='signup'),
     path('signin/', views.signin, name='signin'),
-    # path('signout/', auth_views.logout, name='logout'),
+    path('get_ip/',views.get_client_ip,name='client_id'),
 ]
