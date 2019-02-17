@@ -1,10 +1,10 @@
-function TravPart(){
+function TravPart(c){
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
   this.maxvel = 7;
-  this.z = 0;
   this.prevPos = this.pos.copy();
+  this.color = c;
 }
 
 TravPart.prototype.flow = function(field) {
@@ -50,22 +50,19 @@ TravPart.prototype.edges = function() {
   }
 };
 
-TravPart.prototype.show = function() {
-  intensity = random(0,height/40);
+TravPart.prototype.show = function(intensity) {
+  // intensity = random(0,height/40);
   // stroke(255, random(240,255), random(205,255), 50);
-  stroke(255, 220, 205, 25);
-  this.z = this.z + 1;
-  if (this.z > 255) {
-    this.z = 0;
-  }
+  // stroke(255, 220, 205, 25);
+  stroke(this.color);
   strokeWeight(intensity);
   line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
   this.updatePrevious();
 };
 
-TravPart.prototype.deploy = function() {
+TravPart.prototype.deploy = function(intensity) {
   this.flow(flowField);
   this.update();
   this.edges();
-  this.show();
+  this.show(intensity);
 };

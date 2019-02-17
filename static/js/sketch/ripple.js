@@ -25,9 +25,9 @@ Ripple.prototype.drop = function() {
   strokeWeight(this.weight);
   // console.log(this.weightMin+' : '+this.weightMax+' -> '+this.weight);
 
-  this.alpha = alpha(this.color)/255*(this.size-this.vel*this.t)/this.size;
+  this.alpha = alpha(this.color)/255 *  (this.size-this.vel*this.t)/this.size;
   var c = color(red(this.color),green(this.color),blue(this.color),255*this.alpha);
-  console.log(c, this.alpha);
+  // console.log(c, this.alpha);
   stroke(c);
   for (var l = 0; l<this.numOfLayers; l++){
     var r=pow(1.6,l)*this.vel*this.t;

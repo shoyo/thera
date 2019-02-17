@@ -4,11 +4,34 @@
 {% block page_title %}Getting Help{% endblock %}
 
 {% block content %}
-It's crucial when dealing with difficult situations in your life that you consult somebody that will take you seriously.
-These certified, professional medical experts are here to help.
-
-{% for expert in experts %}
-{{ expert.name }}
-{% endfor %}
-
+	<div class="help">
+		<p class="message">It's crucial when dealing with difficult situations in your life that you consult somebody that will take you seriously.</p>
+		<p class="message">These certified, professional medical experts are here to help.</p>
+		<div class="doctors">
+			<div class="info-card">
+				<p class="pict"><img src="{{experts.0.1}}" alt="Doctor_Picture"></p>
+				<p class="name">{{experts.0.0}}</p>
+				<p class="skills">Speciality: {{experts.0.2}}</p>
+				<p class="address">Location: {{experts.0.3}}, {{experts.0.4}}</p>
+			</div>
+			<div class="info-card">
+				<p class="pict"><img src="{{experts.0.1}}" alt="Doctor_Picture"></p>
+				<p class="name">{{experts.1.0}}</p>
+				<p class="skills">Speciality: {{experts.1.2}}</p>
+				<p class="address">Location: {{experts.1.3}}, {{experts.1.4}}</p>
+			</div>
+			<div class="info-card">
+				<p class="pict"><img src="{{experts.0.1}}" alt="Doctor_Picture"></p>
+				<p class="name">{{experts.2.0}}</p>
+				<p class="skills">Speciality: {{experts.2.2}}</p>
+				<p class="address">Location: {{experts.2.3}}, {{experts.2.4}}</p>
+			</div>
+			<div class="info-card">
+				<p class="pict"><img src="{{experts.0.1}}" alt="Doctor_Picture"></p>
+				<p class="name">{{experts.3.0}}</p>
+				<p class="skills">Speciality: {{experts.3.2}}</p>
+				<p class="address">Location: {{experts.3.3}}, {{experts.3.4}}</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

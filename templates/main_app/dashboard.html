@@ -7,6 +7,10 @@
 	$(document).ready(function(){
     	$('.hidden').fadeIn('slow').removeClass('hidden');
 	});
+
+	mood = moods[{{ ret.polarity }}+1];
+	console.log(mood,{{ ret.polarity }});
+
 {% endblock %}
 
 {% block content %}
@@ -48,8 +52,29 @@
 					<div class="card">
 						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
 						<div class="detail">
-							<p class="title">ARTICLE_TITLE</p>
-							<p class="link"><a href="">SAMPLE_LINK</a></p>
+							<p class="title">{{ ret.reddit.0.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.0.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.1.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.1.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.2.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.2.1}}">LINK</a></p>
+						</div>
+					</div>
+					<div class="card">
+						<p class="reddit-icon"><img src="{% static 'img/reddit.svg' %}" alt="Reddit Icon"></p>
+						<div class="detail">
+							<p class="title">{{ ret.reddit.3.0 }}</p>
+							<p class="link"><a href="{{ret.reddit.3.1}}">LINK</a></p>
 						</div>
 					</div>
 				</div>

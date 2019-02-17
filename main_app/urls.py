@@ -9,8 +9,5 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     # path('<username>/journal/', views.journal, name='journal'),
     path('get_ip/',views.get_client_ip,name='client_id'),
-    path('getting_help', views.getting_help, name='getting_help'),
-    url(r'^login/$', auth_views.LoginView, name='login'),
-    url(r'^logout/$', auth_views.LogoutView, name='logout'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('getting_help/', views.getting_help, name='getting_help'),
 ]
