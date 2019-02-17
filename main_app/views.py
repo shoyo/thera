@@ -34,10 +34,9 @@ def index(request):
 def dashboard(request):
     text = request.GET['input']
     polarity = get_polarity(text)
-    emotion = "happy"
-    # emotion = get_emotion(text)
-    # synonym = get_synonym(emotion)
-    quote = ("This is demo quote.", "Demo Author")
+    emotion = get_emotion(text)
+    synonym = get_synonym(emotion)
+    quote = get_quote_and_author(emotion)
     music = get_music_url_and_image(emotion)
     reddit_info = get_reddit_url()
     getting_help(request)
@@ -229,9 +228,9 @@ def get_reddit_url():
 def get_experts():
     """Get doctor data"""
     doctor_info_dict = []
-    response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
+    response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/104.247.134.239",
         headers={
-            "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
+            "X-RapidAPI-Key": 'ff1d2d95d4msh535c8f00c27ed89p140640jsn0918e6dccb33'
         }
     )
     doctor_api_key = doctor_credentials
