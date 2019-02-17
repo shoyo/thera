@@ -1,15 +1,14 @@
 import os
 import random
-import datetime
 import requests
 import spotipy
 import praw
-from django.utils.datastructures import MultiValueDictKeyError
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.conf import settings
 
 from .forms import UserSignUpForm, UserSignInForm
@@ -26,13 +25,14 @@ except ImportError:
 # ==== GENERAL VIEWS =====
 
 def index(request):
-    # dt = datetime.datetime.now()
-    # formatted_dt =
     return render(request, 'main_app/index.html')
 
 
 def dashboard(request):
-    text = request.GET['input']
+    try:
+        text = request.GET['input']
+    except KeyError:
+        text = "happy"
     polarity = get_polarity(text)
     emotion = get_emotion(text)
     synonym = get_synonym(emotion)
@@ -43,29 +43,6 @@ def dashboard(request):
     ret = {'quote': quote, 'music': music, 'polarity': polarity,'reddit':reddit_info}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
-
-def journal_index(request):
-    if request.user.is_authenticated:
-        journals = JournalEntry.objects.filter(author=request.user)
-        return render(request, 'main_app/journal.html', {'journals': journals})
-    else:
-        return render(request, 'main_app/signin.html')
-
-
-def journal(request, username):
-    try:
-        user = User.objects.get(pk=username)
-    except User.DoesNotExist:
-        raise Http404("User does not exist.")
-    if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
-    if request.user.username != user.username:
-        return render(request, 'unavailable.html')
-
-    journals = JournalEntry.objects.filter(author=user)
-    return render(request, 'main_app/journal.html', {'journals': journals})
-
-
 def getting_help(request):
     experts = get_experts()
     return render(request, 'main_app/getting_help.html', {'experts': experts})
@@ -73,53 +50,9 @@ def getting_help(request):
 
 ## === USER AUTHENTICATION ===
 
-def signup(request):
-    if request.method == 'POST':
-        form = UserSignUpForm(request.POST)
-        if form.is_valid():
-            new_user = User(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'],
-                            username=form.cleaned_data['username'], password=form.cleaned_data['password'],
-                            email=form.cleaned_data['email'])
-            new_user.save()
-            return render(request, 'main_app/success.html', {'name': new_user.first_name})
-        else:
-            return render(request, 'main_app/unavailable.html')
-    else:
-        form = UserSignUpForm()
-        return render(request, 'main_app/signup.html', {'form': form})
 
 
-def signin(request):
-    if request.method == 'POST':
-        form = UserSignInForm(request.POST)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            journals = JournalEntry.objects.filter(username=username)
-            return render(request, 'main_app/' + username + '/journal', {'journals': journals})
-        else:
-            return render(request, 'main_app/unavailable.html')
-    else:
-        return render(request, 'main_app/signin.html')
-
-
-
-def signin_view(request):
-    if request == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request, 'main_app/dashboard.html', user)
-        else:
-            return render(request, 'main_app/signin.html')
-    else:
-        return render(request, 'main_app/signin.html')
-
-
-def signout_view(request):
+def logout_view(request):
     logout(request)
     return render(request, 'main_app/index.html')
 
