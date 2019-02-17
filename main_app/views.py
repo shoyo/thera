@@ -35,7 +35,7 @@ def dashboard(request):
         text = "happy"
     polarity = get_polarity(text)
     emotion = get_emotion(text)
-    synonym = get_synonym(emotion)
+    # synonym = get_synonym(emotion)
     quote = get_quote_and_author(emotion)
     music = get_music_url_and_image(emotion)
     reddit_info = get_reddit_url()
