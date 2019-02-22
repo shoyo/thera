@@ -1,6 +1,8 @@
 # junction-2019
-Official repository for Junction Tokyo 2019 project.
-Interact with the app: https://thera-health.herokuapp.com/ (View with browser for optimal experience)
+Official repository for Junction Tokyo 2019 project.  
+  
+Interact with the app: https://thera-health.herokuapp.com/   
+(View on browser for optimal experience)
 
 ## Inspiration
 Mental illness is a serious societal issue that we believe is not addressed or cared for enough in the modern age. In the United States alone, it is estimated that 1 in 5 adults suffer from a mental illness, and most do not seek treatment. In Japan, this number is estimated to be a staggering proportion of 1 in 4 adults. We believe that a there are two major contributors to the prevalence of mental illnesses. First are the negative social stigmas revolving around mental conditions due to their unpredictability and difficulty in diagnosis. It's difficult to be taken seriously by others when dealing with a mental illness, as its symptoms are difficult to quantify and address. The second is the lack of accessibility for help and coping. Many victims of mental illness lack the ability to vent out their feelings, whether it be due to the lack of support from others or simply being too busy to consult a medical expert. These are the issues Thera, the online resource for dealing with mental illness, aims to address.
