@@ -39,7 +39,6 @@ def dashboard(request):
     quote = get_quote_and_author(emotion)
     music = get_music_url_and_image(emotion)
     reddit_info = get_reddit_url()
-    getting_help(request)
     ret = {'quote': quote, 'music': music, 'polarity': polarity,'reddit':reddit_info}
     return render(request, 'main_app/dashboard.html', {'ret': ret})
 
@@ -68,6 +67,9 @@ api_urls = {
     'synonym': 'https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=',
     'article': 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?autoCorrect=true&pageNumber=1&pageSize=2&',
     'quote': 'https://theysaidso.p.rapidapi.com/quote?category=',
+    'medical_expert': "https://betterdoctor.p.rapidapi.com/api.betterdoctor.com/2016-03-01/practices",
+    'reddit': "https://RedditdimashirokovV1.p.rapidapi.com/getRecommendedSubreddits",
+    'spotify': "https://Spotifystefan.skliarovV1.p.rapidapi.com/getRecomendationPlaylist",
 }
 
 
@@ -163,7 +165,7 @@ def get_experts():
     doctor_info_dict = []
     response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/104.247.134.239",
         headers={
-            "X-RapidAPI-Key": '85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778'
+            "X-RapidAPI-Key": os.environ['RAPID_API_KEY']
         }
     )
     doctor_api_key = doctor_credentials
@@ -192,7 +194,7 @@ def doctor(ip_address):
     doctor_info_dict = {}
     response = requests.get("https://moocher-io-ip-geolocation-v1.p.rapidapi.com/192.119.168.96",
         headers={
-            "X-RapidAPI-Key": "85a5d7a39emsh30bfd214eaadf58p15822fjsn42e2f79f9778"
+            "X-RapidAPI-Key": os.environ['RAPID_API_KEY']
         }
     )
     doctor_api_key = doctor_credentials
