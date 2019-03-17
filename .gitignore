@@ -1,7 +1,6 @@
 # Local settings
 main_project/local_settings.py
 main_app/api_keys.py
-main_app/local_api_credentials.py
 
 # Unnecessary auxiliary files
 main_project/__pycache__
