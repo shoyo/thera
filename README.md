@@ -1,6 +1,8 @@
 # junction-2019
 Official repository for Junction Tokyo 2019 project.  
-  
+
+![alt text](https://github.com/shoyo-inokuchi/junction-2019/blob/master/lab/figs/index.png)
+
 Interact with the app: https://thera-health.herokuapp.com/   
 (View on browser for optimal experience)
 
