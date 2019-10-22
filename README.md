@@ -1,5 +1,5 @@
 # Thera
-Official repository of my team's submission to the Junction Tokyo 2019 hackathon.  
+Official repository of my team's submission for the Junction Tokyo 2019 hackathon.  
 
 ![alt text](https://github.com/shoyo-inokuchi/junction-2019/blob/master/demo/index.png)
 
